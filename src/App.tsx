@@ -1,8 +1,37 @@
+import { useEffect } from 'react';
+
 import MVSketch from './p5/MVSketch.tsx';
 import VeilCloudPink from './p5/VeilCloudPink.tsx';
 import DotsTime from './p5/DotsTime.tsx';
 
+
+
 function App() {
+  useEffect(() => {
+    const handleScroll = () => {
+      const targets = document.querySelectorAll('.-effect, .-effecttitle, .-effectlist, .-effectlist > li');
+      
+      targets.forEach((target) => {
+        const rect = target.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          target.classList.add('-scrollin');
+        }
+      });
+    };
+
+    const timer = setTimeout(handleScroll, 100);
+
+    window.addEventListener('scroll', handleScroll);
+
+    const observer = new MutationObserver(handleScroll);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, []);
   return (
     <>
       <main id="main">
