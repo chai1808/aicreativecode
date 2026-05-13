@@ -319,7 +319,7 @@ function App() {
                 <div className="visualthinking">
                   <div className="txtbox -effect">
                     <p>
-                      <a href="../assignment/" target="_blank">
+                      <a href="https://ai-assignment-kappa.vercel.app/" target="_blank">
                         こちら
                       </a>
                       は自身のルーツを探求する一環として、祖父母が関わった1970年代の名古屋における「混血孤児のコミュニティとその文化変遷」についてのエスノグラフィーを、自サイトで公開しています。
