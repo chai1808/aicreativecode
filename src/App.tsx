@@ -78,7 +78,7 @@ function App() {
                   <span className="inwrap">Career</span>
                 </h2>
 
-                <div class="historydl1 -effect _1"><div class="inwrap"><p class="param"></p><dl>
+                <div className="historydl1 -effect _1"><div className="inwrap"><p className="param"></p><dl>
                     <div>
                       <dt>2011年11月-2012年9月</dt>
                       <dd>
@@ -271,7 +271,7 @@ function App() {
                   <span className="inwrap">License</span>
                 </h2>
 
-                <div class="historydl1 -effect"><div class="inwrap"><p class="param"></p><dl>
+                <div className="historydl1 -effect"><div className="inwrap"><p className="param"></p><dl>
                   <div>
                     <dt>2007年</dt>
                     <dd>
