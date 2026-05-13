@@ -78,181 +78,177 @@ function App() {
                   <span className="inwrap">Career</span>
                 </h2>
 
-                <div className="historydl1 -effect _1">
-                  <div className="inwrap">
-                    <dl>
-                      <div>
-                        <dt>2011年11月-2012年9月</dt>
-                        <dd>
-                          <p className="main">
-                            WEBサイト制作・システム運用更新
+                <div class="historydl1 -effect _1"><div class="inwrap"><p class="param"></p><dl>
+                    <div>
+                      <dt>2011年11月-2012年9月</dt>
+                      <dd>
+                        <p className="main">
+                          WEBサイト制作・システム運用更新
+                        </p>
+                        <div className="sub">
+                          <p>
+                            旅行会社予約フォーム制作、介護福祉・製造業の会社紹介サイト制作
                           </p>
-                          <div className="sub">
-                            <p>
-                              旅行会社予約フォーム制作、介護福祉・製造業の会社紹介サイト制作
-                            </p>
-                            <ul>
-                              <li>
-                                ・(1年)HTML, CSS, JavaScript, PHP, MySQL,
-                                Smarty, WordPress
-                              </li>
-                              <li>
-                                ・(7カ月)Photoshop, Illustrator, PostgreSQL,
-                                Linux
-                              </li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2013年6月-2013年12月</dt>
-                        <dd>
-                          <p className="main">新聞社のWEBサイト制作</p>
-                          <div className="sub">
-                            <p>
-                              システム開発、その他、単体テスト、結合テスト、仕様書作成
-                            </p>
-                            <ul>
-                              <li>
-                                ・PHP, XML, PostgreSQL, HTML, CSS, JavaScript,
-                                Smarty
-                              </li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2013年12月-2014年1月</dt>
-                        <dd>
-                          <p className="main">PCキッティング</p>
-                          <div className="sub">
-                            <p>Windows XPからWindows 8のバージョンアップ</p>
-                            <ul>
-                              <li>・Access VBA</li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2014年2月-2014年4月</dt>
-                        <dd>
-                          <p className="main">マッピングシステム開発</p>
-                          <div className="sub">
-                            <p>
-                              システム開発、サーバ環境構築、その他、単体テスト、結合テスト、仕様書作成
-                            </p>
-                            <ul>
-                              <li>
-                                ・Java, MySQL, HTML, CSS, JavaScript, Servlet,
-                                Linux(CentOS), JBoss7
-                              </li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2014年5月-2014年9月</dt>
-                        <dd>
-                          <p className="main">
-                            介護福祉のサービス予約システム開発
+                          <ul>
+                            <li>
+                              ・(1年)HTML, CSS, JavaScript, PHP, MySQL,
+                              Smarty, WordPress
+                            </li>
+                            <li>
+                              ・(7カ月)Photoshop, Illustrator, PostgreSQL,
+                              Linux
+                            </li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>2013年6月-2013年12月</dt>
+                      <dd>
+                        <p className="main">新聞社のWEBサイト制作</p>
+                        <div className="sub">
+                          <p>
+                            システム開発、その他、単体テスト、結合テスト、仕様書作成
                           </p>
-                          <div className="sub">
-                            <p>
-                              システム開発、その他、単体テスト、結合テスト、仕様書作成
-                            </p>
-                            <ul>
-                              <li>・HTML, CSS, JavaScript, ASP.NET(C#)</li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2014年10月-2015年2月</dt>
-                        <dd>
-                          <p className="main">部品在庫管理システム開発・改修</p>
-                          <div className="sub">
-                            <p>
-                              Oracleを使ったSQLチューニング、Javaを使ったシステム改修、その他、デバッグ・仕様書作成
-                            </p>
-                            <ul>
-                              <li>
-                                ・HTML, CSS, Java, JavaScript, Oracle, Linux,
-                                JSP
-                              </li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2015年4月-2015年7月</dt>
-                        <dd>
-                          <p className="main">物流顧客管理システム開発・改修</p>
-                          <div className="sub">
-                            <p>
-                              Oracleを使ったSQLチューニング、Javaを使ったシステム改修、その他、デバッグ・仕様書作成
-                            </p>
-                            <ul>
-                              <li>
-                                ・HTML, CSS, Java, JavaScript, Oracle, Linux,
-                                JSP
-                              </li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2016年5月-2016年6月</dt>
-                        <dd>
-                          <p className="main">製造工場内運用保守ヘルプデスク</p>
-                          <div className="sub">
-                            <p>
-                              C言語を使ったバックエンドシステム改修、ログ解析
-                            </p>
-                            <ul>
-                              <li>・C, Linux, VBA</li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2016年8月-2018年7月</dt>
-                        <dd>
-                          <p className="main">医療コンサルにてWEBサイト制作</p>
-                          <div className="sub">
-                            <p>
-                              WEBサイト制作、レスポンシブ化、運用更新、画像加工、投稿記事作成、簡易ツール作成
-                            </p>
-                            <ul>
-                              <li>
-                                ・WordPress, Illustrator, Photoshop, CSS, HTML,
-                                JavaScript, PHP, jQuery, MySQL
-                              </li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2018年8月-2026年5月</dt>
-                        <dd>
-                          <p className="main">
-                            小規模B2B制作会社にてWEBサイト制作
+                          <ul>
+                            <li>
+                              ・PHP, XML, PostgreSQL, HTML, CSS, JavaScript,
+                              Smarty
+                            </li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>2013年12月-2014年1月</dt>
+                      <dd>
+                        <p className="main">PCキッティング</p>
+                        <div className="sub">
+                          <p>Windows XPからWindows 8のバージョンアップ</p>
+                          <ul>
+                            <li>・Access VBA</li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>2014年2月-2014年4月</dt>
+                      <dd>
+                        <p className="main">マッピングシステム開発</p>
+                        <div className="sub">
+                          <p>
+                            システム開発、サーバ環境構築、その他、単体テスト、結合テスト、仕様書作成
                           </p>
-                          <div className="sub">
-                            <p>
-                              WEBサイト制作、CSSアニメーション、パフォーマンス改善、SEO最適化、改善提案、GA4・GTMタグ実装、その他運用更新、ECショップ立上げ、カスタマイズ
-                            </p>
-                            <ul>
-                              <li>
-                                ・WordPress, Illustrator, Photoshop, CSS, HTML,
-                                JavaScript, PHP, jQuery, MySQL, Laravel
-                              </li>
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                    </dl>
-                  </div>
-                </div>
+                          <ul>
+                            <li>
+                              ・Java, MySQL, HTML, CSS, JavaScript, Servlet,
+                              Linux(CentOS), JBoss7
+                            </li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>2014年5月-2014年9月</dt>
+                      <dd>
+                        <p className="main">
+                          介護福祉のサービス予約システム開発
+                        </p>
+                        <div className="sub">
+                          <p>
+                            システム開発、その他、単体テスト、結合テスト、仕様書作成
+                          </p>
+                          <ul>
+                            <li>・HTML, CSS, JavaScript, ASP.NET(C#)</li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>2014年10月-2015年2月</dt>
+                      <dd>
+                        <p className="main">部品在庫管理システム開発・改修</p>
+                        <div className="sub">
+                          <p>
+                            Oracleを使ったSQLチューニング、Javaを使ったシステム改修、その他、デバッグ・仕様書作成
+                          </p>
+                          <ul>
+                            <li>
+                              ・HTML, CSS, Java, JavaScript, Oracle, Linux,
+                              JSP
+                            </li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>2015年4月-2015年7月</dt>
+                      <dd>
+                        <p className="main">物流顧客管理システム開発・改修</p>
+                        <div className="sub">
+                          <p>
+                            Oracleを使ったSQLチューニング、Javaを使ったシステム改修、その他、デバッグ・仕様書作成
+                          </p>
+                          <ul>
+                            <li>
+                              ・HTML, CSS, Java, JavaScript, Oracle, Linux,
+                              JSP
+                            </li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>2016年5月-2016年6月</dt>
+                      <dd>
+                        <p className="main">製造工場内運用保守ヘルプデスク</p>
+                        <div className="sub">
+                          <p>
+                            C言語を使ったバックエンドシステム改修、ログ解析
+                          </p>
+                          <ul>
+                            <li>・C, Linux, VBA</li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>2016年8月-2018年7月</dt>
+                      <dd>
+                        <p className="main">医療コンサルにてWEBサイト制作</p>
+                        <div className="sub">
+                          <p>
+                            WEBサイト制作、レスポンシブ化、運用更新、画像加工、投稿記事作成、簡易ツール作成
+                          </p>
+                          <ul>
+                            <li>
+                              ・WordPress, Illustrator, Photoshop, CSS, HTML,
+                              JavaScript, PHP, jQuery, MySQL
+                            </li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>2018年8月-2026年5月</dt>
+                      <dd>
+                        <p className="main">
+                          小規模B2B制作会社にてWEBサイト制作
+                        </p>
+                        <div className="sub">
+                          <p>
+                            WEBサイト制作、CSSアニメーション、パフォーマンス改善、SEO最適化、改善提案、GA4・GTMタグ実装、その他運用更新、ECショップ立上げ、カスタマイズ
+                          </p>
+                          <ul>
+                            <li>
+                              ・WordPress, Illustrator, Photoshop, CSS, HTML,
+                              JavaScript, PHP, jQuery, MySQL, Laravel
+                            </li>
+                          </ul>
+                        </div>
+                      </dd>
+                    </div>
+					        </dl></div></div>
               </div>
 
               <div className="block">
@@ -275,69 +271,65 @@ function App() {
                   <span className="inwrap">License</span>
                 </h2>
 
-                <div className="historydl1 -effect">
-                  <div className="inwrap">
-                    <dl>
-                      <div>
-                        <dt>2007年</dt>
-                        <dd>
-                          TOEIC440点
-                          <span className="small">
-                            (当時聞き取り困難や発達障害は未判定で、配慮のない状態で受験。
-                            明示情報の読解・仕様理解・事実ベースの英文処理は安定していました。)
-                          </span>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2008年</dt>
-                        <dd>
-                          英検2級
-                          <span className="small">
-                            (リスニングおよび面接形式との相性に課題があり、それ以降は受験を見送っています。
-                            当時公文高等部門スピードリーディングも通っていました。)
-                          </span>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2009年</dt>
-                        <dd>日本アロマ環境協会アロマテラピー検定1級</dd>
-                      </div>
-                      <div>
-                        <dt>2011年</dt>
-                        <dd>赤十字救急法救急員</dd>
-                      </div>
-                      <div>
-                        <dt>2016年</dt>
-                        <dd>3級ウェブデザイン技能士</dd>
-                      </div>
-                      <div>
-                        <dt>2016年</dt>
-                        <dd>C言語プログラミング能力認定試験2級</dd>
-                      </div>
-                      <div>
-                        <dt>2017年</dt>
-                        <dd>健康管理能力検定2級</dd>
-                      </div>
-                      <div>
-                        <dt>2024年</dt>
-                        <dd>
-                          謎検7級
-                          <span className="small">
-                            (「推理力」全国ランキング3711人中1552位と平均)
-                          </span>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>2024年</dt>
-                        <dd>データサイエンス数学ストラテジスト中級</dd>
-                      </div>
-                      <div>
-                        <dt>2024年</dt>
-                        <dd>2級ウェブデザイン技能士</dd>
-                      </div>
-                    </dl>
+                <div class="historydl1 -effect"><div class="inwrap"><p class="param"></p><dl>
+                  <div>
+                    <dt>2007年</dt>
+                    <dd>
+                      TOEIC440点
+                      <span className="small">
+                        (当時聞き取り困難や発達障害は未判定で、配慮のない状態で受験。
+                        明示情報の読解・仕様理解・事実ベースの英文処理は安定していました。)
+                      </span>
+                    </dd>
                   </div>
-                </div>
+                  <div>
+                    <dt>2008年</dt>
+                    <dd>
+                      英検2級
+                      <span className="small">
+                        (リスニングおよび面接形式との相性に課題があり、それ以降は受験を見送っています。
+                        当時公文高等部門スピードリーディングも通っていました。)
+                      </span>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>2009年</dt>
+                    <dd>日本アロマ環境協会アロマテラピー検定1級</dd>
+                  </div>
+                  <div>
+                    <dt>2011年</dt>
+                    <dd>赤十字救急法救急員</dd>
+                  </div>
+                  <div>
+                    <dt>2016年</dt>
+                    <dd>3級ウェブデザイン技能士</dd>
+                  </div>
+                  <div>
+                    <dt>2016年</dt>
+                    <dd>C言語プログラミング能力認定試験2級</dd>
+                  </div>
+                  <div>
+                    <dt>2017年</dt>
+                    <dd>健康管理能力検定2級</dd>
+                  </div>
+                  <div>
+                    <dt>2024年</dt>
+                    <dd>
+                      謎検7級
+                      <span className="small">
+                        (「推理力」全国ランキング3711人中1552位と平均)
+                      </span>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>2024年</dt>
+                    <dd>データサイエンス数学ストラテジスト中級</dd>
+                  </div>
+                  <div>
+                    <dt>2024年</dt>
+                    <dd>2級ウェブデザイン技能士</dd>
+                  </div>
+                </dl></div></div>
               </div>
 
               <div className="block">
