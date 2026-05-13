@@ -1,6 +1,6 @@
-import MVSketch from './p5/MVSketch.jsx';
-import VeilCloudPink from './p5/VeilCloudPink.jsx';
-import DotsTime from './p5/DotsTime.jsx';
+import MVSketch from './p5/MVSketch.tsx';
+import VeilCloudPink from './p5/VeilCloudPink.tsx';
+import DotsTime from './p5/DotsTime.tsx';
 
 function App() {
   return (
