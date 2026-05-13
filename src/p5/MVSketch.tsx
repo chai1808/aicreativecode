@@ -1,27 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import p5 from 'p5';
 
 const MVSketch = () => {
-  const renderRef = useRef(null);
+  const renderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 1. マウント時に一度だけ実行
-    let myP5;
+    let myP5: p5;
 
-    // スケッチの内容
-    const sketch = (p) => {
+    const sketch = (p: p5) => {
       let n = 0;
       let f = 1;
-      let d, ctx, bgCanvas, canvas;
+      let d: number, ctx: any, bgCanvas: p5.Graphics, canvas: p5.Renderer;
 
       p.setup = () => {
         const canvasSize = p.max(p.windowWidth, p.windowHeight);
-        // キャンバスを作成し、renderRef（div）の中に入れる
         canvas = p.createCanvas(canvasSize, canvasSize);
-        canvas.parent(renderRef.current);
+        canvas.parent(renderRef.current!);
 
         d = p.displayDensity();
-        ctx = p.drawingContext;
+        ctx = (p as any).drawingContext;
 
         bgCanvas = p.createGraphics(canvasSize, canvasSize);
         bgCanvas.background('#4a7c9d');
@@ -35,7 +32,6 @@ const MVSketch = () => {
       };
 
       p.draw = () => {
-        // 中央寄せ
         const x = (p.windowWidth - p.width) / 2;
         const y = (p.windowHeight - p.height) / 2;
         canvas.position(x, y);
@@ -60,19 +56,16 @@ const MVSketch = () => {
       };
     };
 
-    // p5インスタンスを作成
-    renderRef.current.innerHTML = '';
-    myP5 = new p5(sketch, renderRef.current);
+    if (renderRef.current) {
+      renderRef.current.innerHTML = '';
+      myP5 = new p5(sketch, renderRef.current);
+    }
 
-    // 【重要】コンポーネントが消える時にキャンバスを削除する
     return () => {
-      if (myP5) {
-        myP5.remove();
-      }
+      if (myP5) myP5.remove();
     };
   }, []);
 
-  // id="mvcanvas" の代わりに useRef を使って紐付けます
   return <div ref={renderRef}></div>;
 };
 
