@@ -8,6 +8,7 @@ import LicenseSection from '../components/LicenseSection.tsx';
 import ArtBlock from '../components/ArtBlock.tsx';
 
 function TopPage() {
+  console.log("test");
   useEffect(() => {
     const handleScroll = () => {
       const targets = document.querySelectorAll('.-effect, .-effecttitle, .-effectlist, .-effectlist > li');
