@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 import MVSketch from '../components/p5/MVSketch.tsx';
 
@@ -8,34 +9,48 @@ import LicenseSection from '../components/LicenseSection.tsx';
 import ArtBlock from '../components/ArtBlock.tsx';
 
 function TopPage() {
+  const mainRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
-    const handleScroll = () => {
-      const targets = document.querySelectorAll('.-effect, .-effecttitle, .-effectlist, .-effectlist > li');
-      
-      targets.forEach((target) => {
-        const rect = target.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          target.classList.add('-scrollin');
-        }
-      });
-    };
+    // ==========================================
+    //  ページロード時のシャッターアニメーション
+    // ==========================================
+    const pageShutter = document.getElementById('pageshutter');
 
-    const timer = setTimeout(handleScroll, 100);
+    if (pageShutter) {
+      const timeline = gsap.timeline();
 
-    window.addEventListener('scroll', handleScroll);
+      timeline.to(
+        '#pageshutter',
+        {
+          opacity: 0,
+          duration: 2.6,
+          delay: 0.2,
+          ease: 'power2.inOut',
+          onComplete: () => {
+            pageShutter.style.pointerEvents = 'none';
+            pageShutter.style.zIndex = '-1';
+          },
+        },
+        0
+      );
 
-    const observer = new MutationObserver(handleScroll);
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timer);
-      observer.disconnect();
-    };
+      timeline.from(
+        '#main',
+        {
+          scale: 0.95,
+          opacity: 0.8,
+          duration: 2.6,
+          ease: 'power2.out',
+        },
+        0
+      );
+    }
   }, []);
+
   return (
     <>
-      <main id="main">
+      <main id="main" ref={mainRef}>
         <header id="topmv">
           <div className="sitetitle">
             <h1 className="h1title tiltneon">Ai Creative Code Portfolio</h1>
@@ -88,7 +103,10 @@ function TopPage() {
                 <div className="visualthinking">
                   <div className="txtbox -effect">
                     <p>
-                      <a href="https://ai-assignment-kappa.vercel.app/" target="_blank">
+                      <a
+                        href="https://ai-assignment-kappa.vercel.app/"
+                        target="_blank"
+                      >
                         こちら
                       </a>
                       は自身のルーツを探求する一環として、祖父母が関わった1970年代の名古屋における「混血孤児のコミュニティとその文化変遷」についてのエスノグラフィーを、自サイトで公開しています。

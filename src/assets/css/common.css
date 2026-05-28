@@ -53,30 +53,6 @@ body {
     text-align: left;
   }
 }
-.-effect {
-  opacity: 0;
-  transition: opacity 3s cubic-bezier(0.25, 1, 0.5, 1) 0.8s,
-    transform 3s cubic-bezier(0.25, 1, 0.5, 1) 0.8s;
-}
-.-effecttitle {
-  opacity: 0;
-  transition: opacity 2s cubic-bezier(0.25, 1, 0.5, 1),
-    transform 2s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.-effectlist > li {
-  opacity: 0;
-  transform: translate(0, 60px);
-  transition: opacity 4s cubic-bezier(0.25, 1, 0.5, 1),
-    transform 4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.-effect.-scrollin,
-.-effecttitle.-scrollin,
-.-effectlist.-scrollin > li {
-  opacity: 1;
-}
-.-effectlist.-scrollin > li {
-  transform: translate(0, 0);
-}
 .ermsg {
   color: #fff;
   margin-bottom: 10px;
@@ -414,10 +390,9 @@ body {
 #article {
   position: relative;
   z-index: 10;
-  padding-bottom: 200px;
   padding-top: 80px;
 }
-@media screen and (max-width:900px) {
+@media screen and (max-width: 900px) {
   #topmv #mvcanvas > canvas {
     width: 100vh !important;
     height: 100vh !important;
@@ -425,7 +400,6 @@ body {
 }
 @media screen and (max-width: 767px) {
   #article {
-    padding-bottom: 60px;
     padding-top: 0;
   }
 }
@@ -447,6 +421,8 @@ body {
   will-change: filter, color;
   filter: saturate(200%) hue-rotate(20deg);
   transition: 1s;
+}
+#article .block .blocktitle.-effecttitle > .inwrap {
   color: #f7e7fe;
 }
 #article .block .blocktitle.-effecttitle.-scrollin > .inwrap {
@@ -579,11 +555,6 @@ br.middleblockbr {
   position: absolute;
   top: 10px;
   left: 4px;
-  transition: 1.6s;
-  transition-duration: 3s;
-}
-.historydl1.-effect.-scrollin > .inwrap .param {
-  height: calc(100% - 10px);
 }
 #work .historydl1 > .inwrap > dl > div > dt {
   width: 130px;
@@ -692,16 +663,15 @@ br.middleblockbr {
   background-color: #4a7c9d;
 }
 #profile .imagelist.-effect.-scrollin > ul > li .imgcover {
-  -webkit-animation: byeShutter 2.6s forwards;
-  animation: byeShutter 2.6s forwards;
+  animation: 2.6s forwards byeShutter;
 }
-#profile .imagelist.-effect.-scrollin > ul > li .imgcover::before {
-  -webkit-animation: shutterOpen1 2.6s forwards;
-  animation: shutterOpen1 2.6s forwards;
+
+#profile .imagelist.-effect.-scrollin > ul > li .imgcover:before {
+  animation: 2.6s forwards shutterOpen1;
 }
-#profile .imagelist.-effect.-scrollin > ul > li .imgcover::after {
-  -webkit-animation: shutterOpen2 2.6s forwards;
-  animation: shutterOpen2 2.6s forwards;
+
+#profile .imagelist.-effect.-scrollin > ul > li .imgcover:after {
+  animation: 2.6s forwards shutterOpen2;
 }
 @media screen and (max-width: 767px) {
   #profile .imagelist > ul {
