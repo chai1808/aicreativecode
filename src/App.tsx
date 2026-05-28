@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,6 +8,8 @@ import TopPage from './pages/TopPage';
 gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
+  const mainRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     // ==========================================
     // スクロールアニメーション（タイトル・リスト・一般要素）
@@ -141,9 +143,12 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="app-container">
-      <TopPage />
-    </div>
+    <main id="main" ref={mainRef}>
+      <div className="app-container">
+        <TopPage />
+      </div>
+      <p className="cr sacramento">@ Ai Creative Code</p>
+    </main>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import gsap from 'gsap';
 
 import MVSketch from '../components/p5/MVSketch.tsx';
@@ -9,7 +9,6 @@ import LicenseSection from '../components/LicenseSection.tsx';
 import ArtBlock from '../components/ArtBlock.tsx';
 
 function TopPage() {
-  const mainRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     // ==========================================
@@ -50,7 +49,6 @@ function TopPage() {
 
   return (
     <>
-      <main id="main" ref={mainRef}>
         <header id="topmv">
           <div className="sitetitle">
             <h1 className="h1title tiltneon">Ai Creative Code Portfolio</h1>
@@ -134,7 +132,6 @@ function TopPage() {
             </div>
           </section>
         </article>
-      </main>
     </>
   );
 }

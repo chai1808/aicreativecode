@@ -97,6 +97,12 @@ body {
   -webkit-animation: contentScale 2.6s forwards;
   animation: contentScale 2.6s forwards;
 }
+#main .cr{
+  text-align: center;
+  color: #ccc;
+  padding: 5px 10px;
+  font-size: 1.8rem;
+}
 @-webkit-keyframes byeShutter {
   70% {
     opacity: 1;
@@ -390,17 +396,11 @@ body {
 #article {
   position: relative;
   z-index: 10;
-  padding-top: 80px;
 }
 @media screen and (max-width: 900px) {
   #topmv #mvcanvas > canvas {
     width: 100vh !important;
     height: 100vh !important;
-  }
-}
-@media screen and (max-width: 767px) {
-  #article {
-    padding-top: 0;
   }
 }
 #article .block {
@@ -472,7 +472,6 @@ br.middleblockbr {
 #profile {
   padding: 100px 0;
   background: #fff;
-  margin-bottom: 200px;
 }
 #profile .table1 {
   border: 1px solid #999;
