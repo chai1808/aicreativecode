@@ -105,7 +105,7 @@ function TopPage() {
                 <div className="txtbox -effect">
                   <p>
                     <a
-                      href="https://aicreative-code.net/"
+                      href="https://chai1808.github.io/ai-assignment/"
                       target="_blank"
                       rel="noreferrer"
                     >
