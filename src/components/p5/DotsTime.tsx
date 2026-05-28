@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import p5 from 'p5';
 
-// 水玉（オブジェクト）の型定義
 interface Bubble {
   x: number;
   y: number;
@@ -23,11 +22,12 @@ const DotsTime: React.FC = () => {
       let minutesRadius: number;
       let hoursRadius: number;
       let clockDiameter: number;
-      // Bubble型オブジェクトの配列として定義
       let bubbles: Bubble[] = [];
 
       p.setup = () => {
-        const canvas = p.createCanvas(600, 300);
+        const w = renderRef.current ? Math.min(renderRef.current.clientWidth, 600) : 600;
+        const canvas = p.createCanvas(w, 300);
+        
         if (renderRef.current) {
           canvas.parent(renderRef.current);
         }
@@ -42,7 +42,7 @@ const DotsTime: React.FC = () => {
         clockDiameter = radius * 1.7;
 
         p.noStroke();
-        for (let i = 0; i < 80; i++) {
+        for (let i = 0; i < 50; i++) {
           bubbles.push({
             x: p.random(-100, p.width + 100),
             y: p.random(-100, p.height + 100),
@@ -74,7 +74,6 @@ const DotsTime: React.FC = () => {
         }
 
         p.translate(p.width / 2, p.height / 2);
-
         p.noStroke();
         p.fill(210, 180, 255, 160);
         p.ellipse(0, 0, clockDiameter + 25, clockDiameter + 25);
@@ -87,33 +86,29 @@ const DotsTime: React.FC = () => {
 
         p.stroke(255);
 
-        // 秒針
         p.push();
         p.rotate(secondAngle);
         p.strokeWeight(1);
         p.line(0, 0, 0, -secondsRadius);
         p.pop();
 
-        // 分針
         p.push();
         p.strokeWeight(2);
         p.rotate(minuteAngle);
         p.line(0, 0, 0, -minutesRadius);
         p.pop();
 
-        // 時針
         p.push();
         p.strokeWeight(4);
         p.rotate(hourAngle);
         p.line(0, 0, 0, -hoursRadius);
         p.pop();
 
-        // メモリ
         p.push();
-        p.strokeWeight(2);
-        for (let ticks = 0; ticks < 60; ticks += 1) {
+        p.strokeWeight(3);
+        for (let ticks = 0; ticks < 12; ticks += 1) {
           p.point(0, -secondsRadius);
-          p.rotate(6);
+          p.rotate(30);
         }
         p.pop();
       };
@@ -132,7 +127,7 @@ const DotsTime: React.FC = () => {
   return (
     <div
       ref={renderRef}
-      style={{ display: 'flex', justifyContent: 'center' }}
+      style={{ display: 'flex', justifyContent: 'center', width: '100%', overflow: 'hidden' }}
     ></div>
   );
 };

@@ -25,7 +25,6 @@ const MVSketch: React.FC = () => {
         }
 
         d = p.displayDensity();
-        // drawingContext の型アサーション
         ctx = p.drawingContext as CanvasRenderingContext2D;
 
         bgCanvas = p.createGraphics(canvasSize, canvasSize);

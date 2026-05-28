@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import p5 from 'p5';
 
-// Tileクラスのインターフェース（構造）を定義
 interface ITile {
   x: number;
   y: number;
   size: number;
-  c: p5.Color;
+  opacity: number;
   show(): void;
 }
 
@@ -14,15 +13,13 @@ const VeilCloudPink: React.FC = () => {
   const renderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 画面に要素が存在しない（null）の場合は何もしない
     if (!renderRef.current) return;
 
     let myP5: p5;
 
     const sketch = (p: p5) => {
-      const tileCount = 100;
+      const tileCount = 60;
       const noiseScale = 0.05;
-      // gridの型を ITile の2次元配列として定義
       let grid: ITile[][] = [];
       let t = 0;
 
@@ -30,18 +27,18 @@ const VeilCloudPink: React.FC = () => {
         x: number;
         y: number;
         size: number;
-        c: p5.Color;
+        opacity: number;
 
-        constructor(x: number, y: number, size: number, a: number) {
+        constructor(x: number, y: number, size: number) {
           this.x = x;
           this.y = y;
           this.size = size;
-          this.c = p.color(255, a);
+          this.opacity = 0;
         }
 
         show() {
           p.noStroke();
-          p.fill(this.c);
+          p.fill(255, 255, 255, this.opacity);
           p.rect(this.x, this.y, this.size, this.size);
         }
       }
@@ -51,39 +48,41 @@ const VeilCloudPink: React.FC = () => {
         if (renderRef.current) {
           canvas.parent(renderRef.current);
         }
+
+        let tileSize = p.width / tileCount;
+        for (let row = 0; row < tileCount; row++) {
+          grid[row] = [];
+          for (let col = 0; col < tileCount; col++) {
+            let x = col * tileSize;
+            let y = row * tileSize;
+            grid[row][col] = new Tile(x, y, tileSize);
+          }
+        }
       };
 
       p.draw = () => {
         p.background(194, 167, 124);
-        createGrid();
-        showGrid();
+        
+        updateAndShowGrid();
+        
         drawWaterOverlay();
-        t += 0.01;
+        t += 0.005;
       };
 
-      const createGrid = () => {
-        grid = [];
-        let tileSize = p.width / tileCount;
+      const updateAndShowGrid = () => {
         let ynoise = t;
         for (let row = 0; row < tileCount; row++) {
-          grid[row] = [];
           let xnoise = t;
           for (let col = 0; col < tileCount; col++) {
-            let x = col * tileSize;
-            let y = row * tileSize;
             let a = p.pow(p.noise(xnoise, ynoise), 1.8) * 255;
-            grid[row][col] = new Tile(x, y, tileSize, a);
+            
+            const tile = grid[row][col];
+            tile.opacity = a;
+            tile.show();
+            
             xnoise += noiseScale;
           }
           ynoise += noiseScale;
-        }
-      };
-
-      const showGrid = () => {
-        for (let row = 0; row < tileCount; row++) {
-          for (let col = 0; col < tileCount; col++) {
-            grid[row][col].show();
-          }
         }
       };
 

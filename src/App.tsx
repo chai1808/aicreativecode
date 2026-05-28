@@ -1,34 +1,28 @@
-import { useEffect, useRef } from 'react';
-
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 import TopPage from './pages/TopPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
-  const mainRef = useRef<HTMLElement | null>(null);
+  const mainRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    // ==========================================
-    // スクロールアニメーション（タイトル・リスト・一般要素）
-    // ==========================================
-    const scrollTargets = document.querySelectorAll(
+  useGSAP(() => {
+    const scrollTargets = gsap.utils.toArray<HTMLElement>(
       '.-effect, .-effecttitle, .-effectlist, .-effectlist > li'
     );
 
     scrollTargets.forEach((target) => {
       const isImageSubElement = target.closest('.imagelist.-effect');
-
       const isListItem = target.tagName === 'LI';
       const isTitle = target.classList.contains('-effecttitle');
-      const isListContainer =
-        target.classList.contains('-effectlist') && target.tagName !== 'LI';
+      const isListContainer = target.classList.contains('-effectlist') && target.tagName !== 'LI';
 
       if (isListContainer) {
-        // リストコンテナ内のすべてのリストアイテムをアニメーション
-        const items = (target as HTMLElement).querySelectorAll('li');
+        const items = target.querySelectorAll('li');
         items.forEach((item, itemIndex) => {
           gsap.from(item, {
             scrollTrigger: {
@@ -41,13 +35,11 @@ const App: React.FC = () => {
             y: 40,
             duration: 0.4,
             delay: itemIndex * 0.1,
-            ease: 'cubic-bezier(0.25, 1, 0.5, 1)',
+            ease: 'power2.out',
           });
         });
       } else if (isTitle) {
-        // ネオンタイトルアニメーション
-        const inwrap = target.querySelector('.inwrap') as HTMLElement;
-
+        const inwrap = target.querySelector('.inwrap');
         if (inwrap) {
           gsap.from(inwrap, {
             scrollTrigger: {
@@ -58,7 +50,7 @@ const App: React.FC = () => {
             },
             opacity: 0,
             duration: 0.4,
-            ease: 'cubic-bezier(0.25, 1, 0.5, 1)',
+            ease: 'power2.out',
           });
 
           gsap.to(inwrap, {
@@ -69,10 +61,8 @@ const App: React.FC = () => {
               toggleActions: 'play none none reverse',
             },
             color: '#fff',
-            textShadow:
-              '0 0 2px #f7e7fe, 0 0 4px #f1d6f8, 0 0 6px #c8b4dc, 0 0 8px #9678b4',
+            textShadow: '0 0 2px #f7e7fe, 0 0 4px #f1d6f8, 0 0 6px #c8b4dc, 0 0 8px #9678b4',
             duration: 0,
-            ease: 'power2.inOut',
           });
         }
       } else if (!isListItem && target.tagName !== 'UL' && !isImageSubElement) {
@@ -87,21 +77,15 @@ const App: React.FC = () => {
           y: 20,
           duration: 1.6,
           delay: 0.4,
-          ease: 'cubic-bezier(0.25, 1, 0.5, 1)',
+          ease: 'power2.out',
         });
       }
 
-      // タイムラインなどの直線アニメーション（historydl1）
       if (target.classList.contains('historydl1')) {
-        const param = target.querySelector('.param') as HTMLElement;
-
+        const param = target.querySelector('.param');
         if (param) {
-          gsap.fromTo(
-            param,
-            {
-              height: 0,
-              opacity: 0,
-            },
+          gsap.fromTo(param,
+            { height: 0, opacity: 0 },
             {
               scrollTrigger: {
                 trigger: target,
@@ -119,15 +103,11 @@ const App: React.FC = () => {
       }
     });
 
-    //　すべての画像リストの処理
-    const imageLists = document.querySelectorAll('.imagelist.-effect');
-
+    const imageLists = gsap.utils.toArray<HTMLElement>('.imagelist.-effect');
     imageLists.forEach((imageList) => {
       const items = imageList.querySelectorAll('li');
-
       items.forEach((item) => {
-        const imgCover = item.querySelector('.imgcover') as HTMLElement;
-
+        const imgCover = item.querySelector('.imgcover');
         if (imgCover) {
           ScrollTrigger.create({
             trigger: item,
@@ -140,7 +120,8 @@ const App: React.FC = () => {
         }
       });
     });
-  }, []);
+
+  }, { scope: mainRef });
 
   return (
     <main id="main" ref={mainRef}>
