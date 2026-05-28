@@ -105,7 +105,7 @@ function TopPage() {
                 <div className="txtbox -effect">
                   <p>
                     <a
-                      href="https://ai-assignment-kappa.vercel.app/"
+                      href="https://aicreative-code.net/"
                       target="_blank"
                       rel="noreferrer"
                     >
