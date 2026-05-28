@@ -1,27 +1,41 @@
 import React, { useEffect, useRef } from 'react';
 import p5 from 'p5';
 
-const VeilCloudPink = () => {
-  const renderRef = useRef(null);
+// Tileクラスのインターフェース（構造）を定義
+interface ITile {
+  x: number;
+  y: number;
+  size: number;
+  c: p5.Color;
+  show(): void;
+}
+
+const VeilCloudPink: React.FC = () => {
+  const renderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 1. マウント時に一度だけ実行
-    let myP5;
+    // 画面に要素が存在しない（null）の場合は何もしない
+    if (!renderRef.current) return;
 
-    const sketch = (p) => {
-      // 共通変数
+    let myP5: p5;
+
+    const sketch = (p: p5) => {
       const tileCount = 100;
       const noiseScale = 0.05;
-      let grid = [];
+      // gridの型を ITile の2次元配列として定義
+      let grid: ITile[][] = [];
       let t = 0;
 
-      // Tileクラスをp5インスタンス内で定義
-      class Tile {
-        constructor(x, y, size, a) {
+      class Tile implements ITile {
+        x: number;
+        y: number;
+        size: number;
+        c: p5.Color;
+
+        constructor(x: number, y: number, size: number, a: number) {
           this.x = x;
           this.y = y;
           this.size = size;
-          // color() は p5の関数なので p.color()
           this.c = p.color(255, a);
         }
 
@@ -33,24 +47,20 @@ const VeilCloudPink = () => {
       }
 
       p.setup = () => {
-        // コンテナのサイズに合わせるか、600x600固定にする
         const canvas = p.createCanvas(600, 300);
-        canvas.parent(renderRef.current);
+        if (renderRef.current) {
+          canvas.parent(renderRef.current);
+        }
       };
 
       p.draw = () => {
         p.background(194, 167, 124);
-
         createGrid();
         showGrid();
-
-        // ピンクの水面レイヤー
         drawWaterOverlay();
-
         t += 0.01;
       };
 
-      // 内部関数（すべて p. をつけて呼び出す）
       const createGrid = () => {
         grid = [];
         let tileSize = p.width / tileCount;
@@ -61,7 +71,6 @@ const VeilCloudPink = () => {
           for (let col = 0; col < tileCount; col++) {
             let x = col * tileSize;
             let y = row * tileSize;
-            // noise() や pow() も p. 経由
             let a = p.pow(p.noise(xnoise, ynoise), 1.8) * 255;
             grid[row][col] = new Tile(x, y, tileSize, a);
             xnoise += noiseScale;
@@ -85,7 +94,6 @@ const VeilCloudPink = () => {
       };
     };
 
-    // p5インスタンスを作成
     renderRef.current.innerHTML = '';
     myP5 = new p5(sketch, renderRef.current);
 
