@@ -17,7 +17,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'ja',
+    lng: 'en',
     fallbackLng: 'ja',
     ns: ['topPage'],
     defaultNS: 'topPage',
