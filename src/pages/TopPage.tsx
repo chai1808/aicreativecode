@@ -38,8 +38,11 @@ function TopPage() {
   const LicenseData = t('License.data', { returnObjects: true }) as LicenseItem[];
   const ArtData = t('Art.data', { returnObjects: true }) as ArtItem[];
 
-  const animateIfExists = (selector, animationCallback) => {
-    const element = document.querySelector(selector);
+  const animateIfExists = (
+    selector: string, 
+    animationCallback: (element: HTMLElement) => void
+  ) => {
+    const element = document.querySelector(selector) as HTMLElement | null;
     if (element) {
       animationCallback(element);
     }
