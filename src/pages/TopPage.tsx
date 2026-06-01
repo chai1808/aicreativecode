@@ -38,22 +38,27 @@ function TopPage() {
   const LicenseData = t('License.data', { returnObjects: true }) as LicenseItem[];
   const ArtData = t('Art.data', { returnObjects: true }) as ArtItem[];
 
-  useGSAP(() => {
-    const pageShutter = document.getElementById('pageshutter');
+  const animateIfExists = (selector, animationCallback) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      animationCallback(element);
+    }
+  };
 
-    if (pageShutter) {
+  useGSAP(() => {
+    animateIfExists('#pageshutter', (shutter) => {
       const timeline = gsap.timeline();
 
       timeline.to(
-        '#pageshutter',
+        shutter,
         {
           opacity: 0,
           duration: 2.6,
           delay: 0.2,
           ease: 'power2.inOut',
           onComplete: () => {
-            pageShutter.style.pointerEvents = 'none';
-            pageShutter.style.zIndex = '-1';
+            shutter.style.pointerEvents = 'none';
+            shutter.style.zIndex = '-1';
             
             ScrollTrigger.refresh();
           },
@@ -61,9 +66,9 @@ function TopPage() {
         0
       );
 
-      if (document.getElementById('main')) {
+      animateIfExists('#main', (mainElement) => {
         timeline.from(
-          '#main',
+          mainElement,
           {
             scale: 0.95,
             opacity: 0.8,
@@ -72,8 +77,8 @@ function TopPage() {
           },
           0
         );
-      }
-    }
+      });
+    });
   }, { scope: containerRef });
 
   return (
