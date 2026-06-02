@@ -5,7 +5,6 @@ import { useGSAP } from '@gsap/react';
 import { useTranslation } from 'react-i18next';
 
 import MVSketch from '../components/p5/MVSketch.tsx';
-import VeilCloudPink from '../components/p5/VeilCloudPink';
 import DotsTime from '../components/p5/DotsTime';
 
 interface CareerItem {
@@ -209,12 +208,6 @@ function TopPage() {
                 </div>
                 <div className="imagelist _p5js -effect">
                   <ul>
-                    <li>
-                      <div className="img">
-                        <div className="imgcover"></div>
-                        <VeilCloudPink />
-                      </div>
-                    </li>
                     <li>
                       <div className="img">
                         <div className="imgcover"></div>

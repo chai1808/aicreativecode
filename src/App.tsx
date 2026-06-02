@@ -2,7 +2,8 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import './i18n';
+import i18n from './i18n';
+import { useTranslation } from 'react-i18next';
 
 import TopPage from './pages/TopPage';
 
@@ -10,8 +11,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
   const mainRef = useRef<HTMLElement>(null);
+  const switcherRef = useRef<HTMLDivElement>(null);
+  const { i18n: i18nInstance } = useTranslation();
+  const currentLanguage = i18nInstance.language;
+
+  const switchLanguage = (lang: string) => {
+    i18n.changeLanguage(lang).then(() => {
+      ScrollTrigger.refresh();
+    });
+  };
 
   useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: '#article',
+      start: 'top top',
+      end: 'max',
+      toggleClass: { 
+        targets: switcherRef.current, 
+        className: 'black-theme' 
+      }
+    });
+
     const scrollTargets = gsap.utils.toArray<HTMLElement>(
       '.-effect, .-effecttitle, .-effectlist, .-effectlist > li'
     );
@@ -125,12 +145,18 @@ const App: React.FC = () => {
   }, { scope: mainRef });
 
   return (
-    <main id="main" ref={mainRef}>
-      <div className="app-container">
-        <TopPage />
-      </div>
-      <p className="cr sacramento">@ Ai Creative Code</p>
-    </main>
+    <>
+      <main id="main" ref={mainRef}>
+        <div className="app-container">
+          <TopPage />
+        </div>
+        <p className="cr sacramento">@ Ai Creative Code</p>
+      </main>
+      <div id="translateswitcher" ref={switcherRef} className="white-theme"><ul>
+        <li className={`en ${currentLanguage === 'en' ? 'is-active' : ''}`}><button onClick={() => switchLanguage('en')}>English</button></li>
+        <li className={`ja ${currentLanguage === 'ja' ? 'is-active' : ''}`}><button onClick={() => switchLanguage('ja')}>日本語</button></li>
+      </ul></div>
+    </>
   );
 };
 
