@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useTranslation } from 'react-i18next';
 
+import '../assets/css/TopPage.scss';
+
 import MVSketch from '../components/p5/MVSketch.tsx';
 import DotsTime from '../components/p5/DotsTime';
 
@@ -31,7 +33,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function TopPage() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { t } = useTranslation('topPage');
+  const { t } = useTranslation('TopPage');
   const CareerData = t('Career.data', { returnObjects: true }) as CareerItem[];
   const EducationalData = t('Educational.data', { returnObjects: true }) as EducationalItem[];
   const LicenseData = t('License.data', { returnObjects: true }) as LicenseItem[];
@@ -101,126 +103,124 @@ function TopPage() {
         </p>
       </header>
 
-      <article id="article">
-        <section id="profile">
-          <div className="incnt min">
-            <h2 className="copytitle tcspl -effect" dangerouslySetInnerHTML={{ __html: t('firstSection.title') }} />
-            <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('firstSection.text') }} />
+      <article id="article"><div id="articlewrap">
+        <div className="incnt min">
+          <h2 className="copytitle tcspl -effect" dangerouslySetInnerHTML={{ __html: t('firstSection.title') }} />
+          <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('firstSection.text') }} />
 
-            <div className="block">
-              <h2 className="blocktitle sacramento -effecttitle">
-                <span className="inwrap">Career</span>
-              </h2>
+          <section className="block">
+            <h2 className="blocktitle sacramento -effecttitle">
+              <span className="inwrap">Career</span>
+            </h2>
 
-              <div className="historydl1 -effect _1">
-                <div className="inwrap">
-                  <p className="param"></p>
-                  <dl>
-                    {Array.isArray(CareerData) &&
-                    CareerData.map((item: CareerItem, index: number) => (
-                      <div key={index}>
-                        <dt>{item.date}</dt>
-                        <dd>
-                          <p className="main">{item.mainTitle}</p>
-                          <div className="sub">
-                            <p>{item.subDescription}</p>
-                            <ul>
-                              {item.skills.map((skill: string, skillIndex: number) => (
-                                <li key={skillIndex}>・{skill}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
-              </div>
-            </div>
-
-            <div className="block">
-              <h2 className="blocktitle sacramento -effecttitle">
-                <span className="inwrap">Educational</span>
-              </h2>
-
-              <div className="txtbox -effect _1 tcspl">
-                <div className="inwrap">
-                  <ul>
-                    {Array.isArray(EducationalData) &&
-                    EducationalData.map((item: EducationalItem, index: number) => (
-                      <li key={index}>・{item.name}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="block">
-              <h2 className="blocktitle sacramento -effecttitle">
-                <span className="inwrap">License</span>
-              </h2>
-
-              <div className="historydl1 -effect">
-                <div className="inwrap">
-                  <p className="param"></p>
-                  <dl>
-                    {Array.isArray(LicenseData) &&
-                    LicenseData.map((item: LicenseItem, index: number) => (
-                      <div key={index}>
-                        <dt>{item.year}</dt>
-                        <dd>
-                          {item.title}
-                          {item.description && (
-                            <span className="small">({item.description})</span>
-                          )}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
-              </div>
-            </div>
-
-            <div className="block">
-              <h2 className="blocktitle sacramento -effecttitle">
-                <span className="inwrap">Visual Thinking</span>
-              </h2>
-
-              <div className="visualthinking">
-                <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('VisualThinking.text') }} />
-
-
-                <div className="imagelist -effect">
-                  <ul>
-                    {Array.isArray(ArtData) &&
-                    ArtData.map((item: ArtItem, index: number) => (
-                      <li key={index}>
-                        <div className="img">
-                          <div className="imgcover"></div>
-                          <a href={item.imageSrc} data-lity>
-                            <img src={item.imageSrc} alt={item.altText} />
-                          </a>
+            <div className="historydl1 -effect _1">
+              <div className="inwrap">
+                <p className="param"></p>
+                <dl>
+                  {Array.isArray(CareerData) &&
+                  CareerData.map((item: CareerItem, index: number) => (
+                    <div key={index}>
+                      <dt>{item.date}</dt>
+                      <dd>
+                        <p className="main">{item.mainTitle}</p>
+                        <div className="sub">
+                          <p>{item.subDescription}</p>
+                          <ul>
+                            {item.skills.map((skill: string, skillIndex: number) => (
+                              <li key={skillIndex}>・{skill}</li>
+                            ))}
+                          </ul>
                         </div>
-                        <p className="cap">{item.caption}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="imagelist _p5js -effect">
-                  <ul>
-                    <li>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </section>
+
+          <section className="block">
+            <h2 className="blocktitle sacramento -effecttitle">
+              <span className="inwrap">Educational</span>
+            </h2>
+
+            <div className="txtbox -effect _1 tcspl">
+              <div className="inwrap">
+                <ul>
+                  {Array.isArray(EducationalData) &&
+                  EducationalData.map((item: EducationalItem, index: number) => (
+                    <li key={index}>・{item.name}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section className="block">
+            <h2 className="blocktitle sacramento -effecttitle">
+              <span className="inwrap">License</span>
+            </h2>
+
+            <div className="historydl1 -effect">
+              <div className="inwrap">
+                <p className="param"></p>
+                <dl>
+                  {Array.isArray(LicenseData) &&
+                  LicenseData.map((item: LicenseItem, index: number) => (
+                    <div key={index}>
+                      <dt>{item.year}</dt>
+                      <dd>
+                        {item.title}
+                        {item.description && (
+                          <span className="small">({item.description})</span>
+                        )}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+          </section>
+
+          <section className="block">
+            <h2 className="blocktitle sacramento -effecttitle">
+              <span className="inwrap">Visual Thinking</span>
+            </h2>
+
+            <div className="visualthinking">
+              <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('VisualThinking.text') }} />
+
+
+              <div className="imagelist -effect">
+                <ul>
+                  {Array.isArray(ArtData) &&
+                  ArtData.map((item: ArtItem, index: number) => (
+                    <li key={index}>
                       <div className="img">
                         <div className="imgcover"></div>
-                        <DotsTime />
+                        <a href={item.imageSrc} data-lity>
+                          <img src={item.imageSrc} alt={item.altText} />
+                        </a>
                       </div>
+                      <p className="cap">{item.caption}</p>
                     </li>
-                  </ul>
-                </div>
+                  ))}
+                </ul>
+              </div>
+              <div className="imagelist _p5js -effect">
+                <ul>
+                  <li>
+                    <div className="img">
+                      <div className="imgcover"></div>
+                      <DotsTime />
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
-          </div>
-        </section>
-      </article>
+          </section>
+        </div>
+      </div></article>
     </div>
   );
 }

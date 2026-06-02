@@ -1,0 +1,478 @@
+@charset "utf-8";
+
+// ==========================================
+// 1. Reset Styles (リセット・基本初期化)
+// ==========================================
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body,
+canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed,
+fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup,
+html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol,
+output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub,
+summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-style: normal;
+  font-weight: 400;
+  vertical-align: baseline;
+  background: 0 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1em;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-y: scroll;
+}
+
+blockquote, q {
+  quotes: none;
+  &::before, &::after {
+    content: '';
+    content: none;
+  }
+}
+
+caption, th {
+  text-align: left;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+// フォーム・ボタン要素の初期化
+input, textarea {
+  margin: 0;
+  padding: 0;
+  &::placeholder {
+    color: #ccc !important;
+  }
+}
+
+button, input, select {
+  vertical-align: middle;
+}
+
+select {
+  text-overflow: '';
+}
+
+button, input, select, textarea {
+  border-radius: 0;
+  border: none;
+  appearance: none;
+}
+
+option {
+  appearance: none;
+}
+
+button,
+input[type='checkbox'], input[type='email'], input[type='password'],
+input[type='radio'], input[type='tel'], input[type='text'],
+select, textarea {
+  outline: 0;
+  background: 0 0;
+}
+
+button,
+input[type='email'], input[type='password'], input[type='tel'], input[type='text'],
+select, textarea {
+  width: auto;
+  box-sizing: border-box;
+}
+
+button, input[type='button'], input[type='reset'], input[type='submit'], label, select {
+  cursor: pointer;
+}
+
+input[type='email'], input[type='password'], input[type='tel'], input[type='text'] {
+  vertical-align: middle;
+}
+
+button, select {
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+button, input[type='button'], input[type='reset'], input[type='submit'] {
+  box-sizing: content-box;
+  appearance: button;
+  
+  &::-webkit-search-decoration {
+    display: none;
+  }
+  &::focus {
+    outline-offset: -2px;
+  }
+}
+
+form {
+  input[type='button'], input[type='reset'], input[type='submit'] {
+    &::focus {
+      outline-offset: -2px;
+    }
+  }
+}
+
+// リスト要素の初期化
+li, ol, ul, dl, dt, dd {
+  list-style-type: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// テーブル要素の初期化
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: justify;
+  font-style: normal;
+  font-weight: normal;
+  width: 100%;
+
+  th, td {
+    text-align: justify;
+    vertical-align: middle;
+    list-style: none;
+    word-break: break-all;
+  }
+  th {
+    font-weight: bold;
+  }
+  &.base, &.type1 {
+    width: 100%;
+    margin: 10px 0 5px;
+  }
+}
+
+// 特殊タグ・インライン系
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: 700;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  font-size: 0;
+  line-height: 0;
+}
+
+sup { vertical-align: super; }
+sub { vertical-align: sub; }
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  &:focus {
+    outline: 0;
+  }
+}
+
+// レガシーハックの整理
+* html {
+  .clearfix, .section {
+    height: 1px;
+  }
+}
+
+
+// ==========================================
+// 2. Base Typography & Structure (基本設定)
+// ==========================================
+body {
+  width: 100%;
+  letter-spacing: 0.001em;
+  max-height: 999999px;
+  overflow: hidden;
+  font-family: 'Arial';
+  font-size: 1.6rem;
+  color: #2f4b5e;
+  line-height: 2;
+  overflow-wrap: break-word;
+  background: #4a7c9d;
+
+  @media screen and (max-width: 767px) {
+    font-size: 1.4rem;
+  }
+}
+
+// 汎用ユーティリティクラス
+.small {
+  font-size: 1.4rem;
+}
+
+.tiltneon {
+  font-family: 'Tilt Neon', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'XROT' 0, 'YROT' 0;
+}
+
+.sacramento {
+  font-family: 'Sacramento', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.tcspl {
+  text-align: center;
+  @media screen and (max-width: 767px) {
+    text-align: left;
+  }
+}
+
+label {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+
+// ==========================================
+// 3. Components (各パーツのスタイル)
+// ==========================================
+
+// 翻訳切り替えスイッチ
+#translateswitcher {
+  position: fixed;
+  top: 5px;
+  right: 10px;
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    font-size: 1.2rem;
+  }
+
+  button {
+    transition: .4s;
+  }
+
+  & > ul > li {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    position: relative;
+
+    &:not(:first-child) {
+      padding-left: 10px;
+      margin-left: 10px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        display: inline-block;
+        width: 1px;
+        height: calc(100% - 5px);
+        margin: auto 0;
+        left: 0;
+        transition: .4s;
+      }
+    }
+
+    button {
+      position: relative;
+      display: inline-block;
+      padding: 3px 0;
+
+      &::before {
+        content: "";
+        height: 1px;
+        width: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        transition: .4s;
+      }
+    }
+
+    &.en button {
+      padding-top: 5px;
+    }
+
+    // アクティブ・ホバー時の下線アニメーション
+    &.is-active button::before,
+    &:not(.is-active) button:hover::before {
+      width: 100%;
+    }
+  }
+
+  // テーマ切り替えバリエーション
+  &.white-theme {
+    &.black-theme {
+      color: #2b2b2b;
+      button { color: #2b2b2b; }
+      & > ul > li:not(:first-child)::before,
+      & > ul > li button::before {
+        background: #2b2b2b;
+      }
+    }
+
+    &:not(.black-theme) {
+      color: #fff;
+      button { color: #fff; }
+      & > ul > li:not(:first-child)::before,
+      & > ul > li button::before {
+        background: #fff;
+      }
+    }
+  }
+}
+
+// メインコンテンツエリア
+#main {
+  // アニメーションコメントアウトの保持
+  // animation: contentScale 2.6s forwards;
+  
+  .cr {
+    text-align: center;
+    color: #ccc;
+    padding: 5px 10px;
+    font-size: 1.8rem;
+  }
+}
+
+#article {
+  position: relative;
+  z-index: 10;
+}
+
+#articlewrap {
+  padding: 100px 0;
+  background: #fff;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 60px;
+  }
+}
+
+// レイアウトコンテナ
+.incnt {
+  max-width: 1040px;
+  width: 88%;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.min { max-width: 880px; }
+  &.morenarrow { max-width: 680px; }
+}
+
+.block {
+  margin-top: 80px;
+  @media screen and (max-width: 767px) {
+    margin-top: 60px;
+  }
+}
+
+// 見出しデザイン（装飾付き）
+.copytitle {
+  margin-bottom: 15px;
+  font-family: 'Kaisei Decol', serif;
+  text-align: center;
+  font-size: 2.4rem;
+  line-height: 1.8;
+  z-index: 100;
+  box-sizing: border-box;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(
+    127deg,
+    rgba(90, 70, 125, 0.95) 0%,
+    rgba(110, 85, 145, 0.95) 18%,
+    rgba(135, 105, 165, 0.95) 32%,
+    rgba(170, 145, 195, 0.95) 50%,
+    rgba(135, 105, 165, 0.95) 68%,
+    rgba(110, 85, 145, 0.95) 82%,
+    rgba(90, 70, 125, 0.95) 100%
+  );
+  background-color: #a99bb8;
+  background-size: 100% 400%;
+  animation: sapphireBlue 2s linear infinite alternate;
+  padding: 10px;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.3),
+               0 0 6px rgba(255, 255, 255, 0.2);
+
+  .inb {
+    display: inline-block;
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 2rem;
+  }
+}
+
+.blocktitle {
+  margin-bottom: 30px;
+  text-align: center;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  & > .inwrap {
+    display: inline-block;
+    position: relative;
+    line-height: 0.5;
+    font-weight: bold;
+    font-size: 4rem;
+    font-style: italic;
+    transform: rotate(-4deg);
+    will-change: filter, color;
+    filter: saturate(200%) hue-rotate(20deg);
+    transition: 1s;
+
+    @media screen and (max-width: 767px) {
+      font-size: 3rem;
+    }
+  }
+
+  &.-effecttitle {
+    & > .inwrap {
+      color: #f7e7fe;
+    }
+    &.-scrollin > .inwrap {
+      text-shadow: 0 0 2px #f7e7fe, 0 0 4px #f1d6f8, 0 0 6px #c8b4dc, 0 0 8px #9678b4;
+      color: #fff;
+    }
+  }
+}

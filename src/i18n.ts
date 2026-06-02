@@ -2,15 +2,15 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import topPageEN from './locales/en/topPage.json';
-import topPageJA from './locales/ja/topPage.json'; 
+import TopPageEN from './locales/en/TopPage.json';
+import TopPageJA from './locales/ja/TopPage.json'; 
 
 const resources = {
   en: {
-    topPage: topPageEN,
+    TopPage: TopPageEN,
   },
   ja: {
-    topPage: topPageJA,
+    TopPage: TopPageJA,
   },
 };
 
@@ -20,8 +20,8 @@ i18n
   .init({
     resources,
     fallbackLng: 'ja',
-    ns: ['topPage'],
-    defaultNS: 'topPage',
+    ns: ['TopPage'],
+    defaultNS: 'TopPage',
     interpolation: {
       escapeValue: false,
     },

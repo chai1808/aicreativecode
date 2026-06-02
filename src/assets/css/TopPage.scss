@@ -1,0 +1,467 @@
+@charset "utf-8";
+
+// ==========================================
+// Keyframes
+// ==========================================
+@keyframes byeShutter {
+  70% { opacity: 1; }
+  100% {
+    opacity: 0;
+    display: none;
+    z-index: -1;
+  }
+}
+
+@keyframes shutterOpen1 {
+  0% { width: 0; height: 1px; }
+  50% { width: 100%; height: 1px; }
+  90%, 100% { width: 100%; height: 100%; }
+}
+
+@keyframes shutterOpen2 {
+  60% {
+    width: 120%;
+    height: 0;
+    transform: rotate(5deg);
+  }
+  90%, 100% {
+    width: 120%;
+    height: 100%;
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes sapphireBlue {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+
+@keyframes sdb10 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% { opacity: 1; }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% { opacity: 0; }
+}
+
+
+// ==========================================
+// Main Styles
+// ==========================================
+
+#pageshutter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2b2b2b;
+  z-index: 9999;
+  animation: byeShutter 2.6s forwards;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  &::before {
+    background-color: #2f4b5e;
+    width: 0;
+    height: 1px;
+    animation: shutterOpen1 2.6s forwards;
+  }
+
+  &::after {
+    width: 120%;
+    height: 0;
+    margin-left: -10%;
+    background-color: #4a7c9d;
+    animation: shutterOpen2 2.6s forwards;
+  }
+}
+
+#topmv {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  .sitetitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 10;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #ccc;
+      text-align: center;
+    }
+  }
+
+  .h1title {
+    font-size: 5rem;
+    z-index: 100;
+    box-sizing: border-box;
+    display: inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(
+      127deg,
+      rgba(150, 120, 180, 0.8) 15%,
+      rgba(180, 140, 200, 0.8) 33%,
+      rgba(200, 180, 220, 0.8) 41%,
+      rgba(220, 190, 240, 0.8) 50%,
+      rgba(200, 180, 220, 0.8) 59%,
+      rgba(180, 140, 200, 0.8) 67%,
+      rgba(150, 120, 180, 0.8) 85%
+    );
+    background-color: #b8a0c2;
+    background-size: 100% 400%;
+    animation: sapphireBlue 2s linear infinite alternate;
+    padding: 10px;
+    line-height: 1;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3),
+                 0 0 6px rgba(255, 255, 255, 0.2);
+
+    @media screen and (max-width: 767px) {
+      font-size: 4rem;
+    }
+  }
+
+  #mvcanvas {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+
+    & > canvas {
+      top: 0;
+      bottom: 0;
+      left: 0 !important;
+      right: 0;
+      width: 100vw !important;
+      height: 100vw !important;
+      margin: auto;
+
+      @media screen and (max-width: 900px) {
+        width: 100vh !important;
+        height: 100vh !important;
+      }
+    }
+  }
+}
+
+#scrolldown {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 30px;
+    height: 50px;
+    margin-left: -15px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    box-sizing: border-box;
+
+    &::before {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      content: '';
+      width: 6px;
+      height: 6px;
+      margin-left: -3px;
+      background-color: #fff;
+      border-radius: 100%;
+      animation: sdb10 2s infinite;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#index {
+  #articlewrap {
+    
+    // 1. 共通テキストボックス
+    .txtbox {
+      margin-bottom: 30px;
+
+      & > p:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      a {
+        text-decoration: underline;
+        color: inherit;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      &._1 > .inwrap {
+        display: inline-block;
+
+        & > ul {
+          text-align: left;
+        }
+      }
+    }
+
+    // 2. 履歴・年表リスト
+    .historydl1 {
+      text-align: center;
+
+      & > .inwrap {
+        position: relative;
+        display: inline-block;
+        text-align: left;
+
+        .param {
+          background: #ccc;
+          display: inline-block;
+          height: 0;
+          width: 1px;
+          position: absolute;
+          top: 10px;
+          left: 4px;
+        }
+
+        & > dl > div {
+          display: flex;
+          flex-direction: row;
+
+          &:not(:last-child) {
+            padding-bottom: 10px;
+          }
+
+          & > dt {
+            flex-shrink: 0;
+            display: flex;
+            width: 60px;
+            padding: 5px 20px;
+            position: relative;
+            line-height: 1.8;
+
+            &::before {
+              content: '';
+              display: inline-block;
+              background: #ccc;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              position: absolute;
+              top: 10px;
+              left: 0;
+            }
+          }
+
+          & > dd {
+            line-height: 1.6;
+            padding-top: 5px;
+
+            .main {
+              line-height: 1.6;
+            }
+            .sub {
+              color: #666;
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+
+      // バリエーション修飾子（._1）
+      &._1 > .inwrap > dl > div {
+        & > dt {
+          width: 180px;
+        }
+
+        @media screen and (max-width: 767px) {
+          display: block;
+
+          & > dt {
+            width: 100%;
+            &::before { top: 12px; }
+          }
+
+          & > dd {
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+
+    // 3. ビジュアルシンキング
+    .visualthinking > .txt {
+      margin-bottom: 30px;
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+    }
+
+    // 4. 画像ギャラリー・リスト
+    .imagelist {
+      & > ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: -40px;
+        margin-bottom: -40px;
+
+        & > li {
+          position: relative;
+          width: calc(33% - 40px);
+          margin-left: 40px;
+          margin-bottom: 40px;
+          overflow: hidden;
+
+          & > .cap {
+            margin-top: 10px;
+            line-height: 1.8;
+          }
+
+          .imgcover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #2b2b2b;
+            z-index: 9999;
+
+            &::before,
+            &::after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              margin: auto;
+            }
+
+            &::before {
+              background-color: #2f4b5e;
+              width: 0;
+              height: 1px;
+            }
+
+            &::after {
+              width: 120%;
+              height: 0;
+              margin-left: -10%;
+              background-color: #4a7c9d;
+            }
+          }
+        }
+      }
+
+      // 4a. 特殊パターン（not ._p5js）
+      &:not(._p5js) > ul > li > .img {
+        display: flex;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        position: relative;
+
+        & > a {
+          display: flex;
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
+      // 4b. 特殊パターン（._p5js）
+      &._p5js {
+        margin-top: 50px;
+
+        & > ul > li {
+          width: calc(50% - 40px);
+        }
+      }
+
+      // 4c. スクロールイン演出
+      &.-effect.-scrollin > ul > li {
+        .imgcover {
+          animation: 2.6s forwards byeShutter;
+          &::before { animation: 2.6s forwards shutterOpen1; }
+          &::after { animation: 2.6s forwards shutterOpen2; }
+        }
+      }
+
+      // 4d. モバイル対応
+      @media screen and (max-width: 767px) {
+        & > ul {
+          display: block;
+          margin-left: 0;
+          margin-bottom: -20px;
+
+          & > li {
+            width: 100%;
+            margin-left: 0;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+
+            & > .cap {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
+          }
+        }
+
+        &:not(._p5js) > ul > li > .img {
+          width: 150px;
+          margin-right: 20px;
+          flex-shrink: 0;
+        }
+
+        &._p5js > ul > li {
+          width: 100%;
+          & > .img {
+            width: 100%;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+  }
+}
