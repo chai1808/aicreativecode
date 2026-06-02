@@ -31,117 +31,92 @@ const App: React.FC = () => {
         className: 'black-theme' 
       }
     });
-
-    const scrollTargets = gsap.utils.toArray<HTMLElement>(
-      '.-effect, .-effecttitle, .-effectlist, .-effectlist > li'
-    );
-
-    scrollTargets.forEach((target) => {
-      const isImageSubElement = target.closest('.imagelist.-effect');
-      const isListItem = target.tagName === 'LI';
-      const isTitle = target.classList.contains('-effecttitle');
-      const isListContainer = target.classList.contains('-effectlist') && target.tagName !== 'LI';
-
-      if (isListContainer) {
-        const items = target.querySelectorAll('li');
-        items.forEach((item, itemIndex) => {
-          gsap.from(item, {
-            scrollTrigger: {
-              trigger: target,
-              start: 'top center+=100',
-              end: 'top center-=100',
-              toggleActions: 'play none none reverse',
-            },
-            opacity: 0,
-            y: 40,
-            duration: 0.4,
-            delay: itemIndex * 0.1,
-            ease: 'power2.out',
-          });
-        });
-      } else if (isTitle) {
-        const inwrap = target.querySelector('.inwrap');
-        if (inwrap) {
-          gsap.from(inwrap, {
-            scrollTrigger: {
-              trigger: target,
-              start: 'top center+=100',
-              end: 'top center-=100',
-              toggleActions: 'play none none reverse',
-            },
-            opacity: 0,
-            duration: 0.4,
-            ease: 'power2.out',
-          });
-
-          gsap.to(inwrap, {
-            scrollTrigger: {
-              trigger: target,
-              start: 'top center+=100',
-              end: 'top center-=100',
-              toggleActions: 'play none none reverse',
-            },
+  
+    const sections = gsap.utils.toArray<HTMLElement>('.block');
+  
+    sections.forEach((section) => {
+      const titleInwrap = section.querySelector('.-effecttitle .inwrap');
+      const content = section.querySelector('.historydl1, .txtbox, .visualthinking');
+  
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top center+=200',
+          end: 'top center-=100',
+          toggleActions: 'play none none reverse',
+        }
+      });
+  
+      if (titleInwrap) {
+        tl.fromTo(titleInwrap, 
+          { opacity: 0, y: 10 },
+          {
+            opacity: 1,
+            y: 0,
             color: '#fff',
             textShadow: '0 0 2px #f7e7fe, 0 0 4px #f1d6f8, 0 0 6px #c8b4dc, 0 0 8px #9678b4',
-            duration: 0,
-          });
-        }
-      } else if (!isListItem && target.tagName !== 'UL' && !isImageSubElement) {
-        gsap.from(target, {
-          scrollTrigger: {
-            trigger: target,
-            start: 'top center+=100',
-            end: 'top center-=100',
-            toggleActions: 'play none none reverse',
-          },
-          opacity: 0,
-          y: 20,
-          duration: 1.6,
-          delay: 0.4,
-          ease: 'power2.out',
-        });
+            duration: 0.2,
+            ease: 'power2.out',
+          }
+        );
       }
-
-      if (target.classList.contains('historydl1')) {
-        const param = target.querySelector('.param');
+  
+      if (content) {
+        tl.fromTo(content,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power2.out',
+          },
+          '>0.4'
+        );
+  
+        const param = content.querySelector('.param');
         if (param) {
-          gsap.fromTo(param,
+          tl.fromTo(param,
             { height: 0, opacity: 0 },
             {
-              scrollTrigger: {
-                trigger: target,
-                start: 'top center+=100',
-                end: 'top center-=100',
-                toggleActions: 'play none none reverse',
-              },
               height: 'calc(100% - 10px)',
               opacity: 1,
-              duration: 1.8,
+              duration: 1.4,
               ease: 'power2.inOut',
-            }
+            },
+            '<'
           );
         }
       }
     });
-
+  
+    const generalEffects = gsap.utils.toArray<HTMLElement>('#articlewrap > .incnt > .-effect');
+    generalEffects.forEach((target) => {
+      gsap.fromTo(target, 
+        { opacity: 0, y: 20 },
+        {
+          scrollTrigger: {
+            trigger: target,
+            start: 'top center+=150',
+            toggleActions: 'play none none reverse',
+          },
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+        }
+      );
+    });
+  
     const imageLists = gsap.utils.toArray<HTMLElement>('.imagelist.-effect');
     imageLists.forEach((imageList) => {
-      const items = imageList.querySelectorAll('li');
-      items.forEach((item) => {
-        const imgCover = item.querySelector('.imgcover');
-        if (imgCover) {
-          ScrollTrigger.create({
-            trigger: item,
-            start: 'top center+=100',
-            once: true,
-            onEnter: () => {
-              imageList.classList.add('-scrollin');
-            },
-          });
-        }
+      ScrollTrigger.create({
+        trigger: imageList,
+        start: 'top center+=100',
+        once: true,
+        onEnter: () => imageList.classList.add('-scrollin'),
       });
     });
-
+  
   }, { scope: mainRef });
 
   return (
