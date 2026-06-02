@@ -153,8 +153,8 @@ const App: React.FC = () => {
         <p className="cr sacramento">@ Ai Creative Code</p>
       </main>
       <div id="translateswitcher" ref={switcherRef} className="white-theme"><ul>
-        <li className={`en ${currentLanguage === 'en' ? 'is-active' : ''}`}><button onClick={() => switchLanguage('en')}>English</button></li>
         <li className={`ja ${currentLanguage === 'ja' ? 'is-active' : ''}`}><button onClick={() => switchLanguage('ja')}>日本語</button></li>
+        <li className={`en ${currentLanguage === 'en' ? 'is-active' : ''}`}><button onClick={() => switchLanguage('en')}>English</button></li>
       </ul></div>
     </>
   );
