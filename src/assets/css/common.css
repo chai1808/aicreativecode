@@ -132,12 +132,15 @@ body {
 #translateswitcher button,
 #translateswitcher>ul>li:not(:first-child):before,
 #translateswitcher>ul>li button:before{
-  transition: .6s;
+  transition: .4s;
 }
 #translateswitcher>ul>li button{
   position: relative;
   display: inline-block;
   padding: 3px 0;
+}
+#translateswitcher>ul>li.en button{
+  padding-top:5px;
 }
 #translateswitcher>ul>li button:before{
   content: "";
