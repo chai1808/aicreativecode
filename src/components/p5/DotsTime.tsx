@@ -25,7 +25,7 @@ const DotsTime: React.FC = () => {
       let bubbles: Bubble[] = [];
 
       p.setup = () => {
-        const w = renderRef.current ? Math.min(renderRef.current.clientWidth, 600) : 600;
+        const w = renderRef.current ? renderRef.current.clientWidth : 600;
         const canvas = p.createCanvas(w, 300);
         
         if (renderRef.current) {

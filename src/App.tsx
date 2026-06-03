@@ -22,20 +22,11 @@ const App: React.FC = () => {
   };
 
   useGSAP(() => {
-    ScrollTrigger.create({
-      trigger: '#article',
-      start: 'top top',
-      end: 'max',
-      toggleClass: { 
-        targets: switcherRef.current, 
-        className: 'black-theme' 
-      }
-    });
-  
     const sections = gsap.utils.toArray<HTMLElement>('.block');
   
     sections.forEach((section) => {
       const titleInwrap = section.querySelector('.-effecttitle .inwrap');
+      const copy = section.querySelector('.-effectcopy');
       const content = section.querySelector('.historydl1, .txtbox, .visualthinking');
   
       const tl = gsap.timeline({
@@ -47,16 +38,35 @@ const App: React.FC = () => {
         }
       });
   
+      if (copy) {
+        tl.fromTo(copy, 
+          { 
+            opacity: 0,
+            filter: 'blur(12px)',
+          },
+          {
+            opacity: 1,
+            filter: 'blur(0px)',
+            duration: 0.8,
+            ease: 'power2.out',
+          }
+        );
+      }
+  
       if (titleInwrap) {
         tl.fromTo(titleInwrap, 
-          { opacity: 0, y: 10 },
+          { 
+            opacity: 0.3,
+            color: '#4a3b5c',
+            textShadow: '0 0 2px rgba(247, 231, 254, 0.2)'
+          },
           {
             opacity: 1,
             y: 0,
             color: '#fff',
-            textShadow: '0 0 2px #f7e7fe, 0 0 4px #f1d6f8, 0 0 6px #c8b4dc, 0 0 8px #9678b4',
-            duration: 0.2,
-            ease: 'power2.out',
+            textShadow: '0 0 4px #fff, 0 0 10px #f7e7fe, 0 0 20px #f1d6f8, 0 0 30px #c8b4dc, 0 0 40px #9678b4',
+            duration: 0.3,
+            ease: 'power4.inOut',
           }
         );
       }
@@ -67,7 +77,7 @@ const App: React.FC = () => {
           {
             opacity: 1,
             y: 0,
-            duration: 1,
+            duration: 1.6,
             ease: 'power2.out',
           },
           '>0.4'
@@ -80,7 +90,7 @@ const App: React.FC = () => {
             {
               height: 'calc(100% - 10px)',
               opacity: 1,
-              duration: 1.4,
+              duration: 1.8,
               ease: 'power2.inOut',
             },
             '<'
@@ -101,7 +111,7 @@ const App: React.FC = () => {
           },
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 1.6,
           ease: 'power2.out',
         }
       );
@@ -127,7 +137,7 @@ const App: React.FC = () => {
         </div>
         <p className="cr sacramento">@ Ai Creative Code</p>
       </main>
-      <div id="translateswitcher" ref={switcherRef} className="white-theme"><ul>
+      <div id="translateswitcher" ref={switcherRef}><ul>
         <li className={`ja ${currentLanguage === 'ja' ? 'is-active' : ''}`}><button onClick={() => switchLanguage('ja')}>日本語</button></li>
         <li className={`en ${currentLanguage === 'en' ? 'is-active' : ''}`}><button onClick={() => switchLanguage('en')}>English</button></li>
       </ul></div>

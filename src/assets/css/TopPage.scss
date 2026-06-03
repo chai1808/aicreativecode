@@ -31,11 +31,6 @@
   }
 }
 
-@keyframes sapphireBlue {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 0% 100%; }
-}
-
 @keyframes sdb10 {
   0% {
     transform: translate(0, 0);
@@ -111,43 +106,21 @@
     left: 0;
     right: 0;
     text-align: center;
-
-    .subtitle {
-      font-size: 1.2rem;
-      color: #ccc;
-      text-align: center;
-    }
   }
 
   .h1title {
-    font-size: 5rem;
+    font-size: 5.6rem;
     z-index: 100;
     box-sizing: border-box;
     display: inline-block;
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(
-      127deg,
-      rgba(150, 120, 180, 0.8) 15%,
-      rgba(180, 140, 200, 0.8) 33%,
-      rgba(200, 180, 220, 0.8) 41%,
-      rgba(220, 190, 240, 0.8) 50%,
-      rgba(200, 180, 220, 0.8) 59%,
-      rgba(180, 140, 200, 0.8) 67%,
-      rgba(150, 120, 180, 0.8) 85%
-    );
-    background-color: #b8a0c2;
-    background-size: 100% 400%;
-    animation: sapphireBlue 2s linear infinite alternate;
-    padding: 10px;
     line-height: 1;
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3),
-                 0 0 6px rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    color:#fff;
 
     @media screen and (max-width: 767px) {
-      font-size: 4rem;
+      font-size: 3.4rem;
     }
   }
 
@@ -251,7 +224,7 @@
         text-align: left;
 
         .param {
-          background: #ccc;
+          background: #aecee6;
           display: inline-block;
           height: 0;
           width: 1px;
@@ -279,7 +252,7 @@
             &::before {
               content: '';
               display: inline-block;
-              background: #ccc;
+              background: #aecee6;
               width: 10px;
               height: 10px;
               border-radius: 50%;
@@ -297,7 +270,7 @@
               line-height: 1.6;
             }
             .sub {
-              color: #666;
+              color: #ccc;
               font-size: 1.4rem;
             }
           }
@@ -337,6 +310,8 @@
 
     // 4. 画像ギャラリー・リスト
     .imagelist {
+      overflow: hidden;
+      
       & > ul {
         display: flex;
         flex-direction: row;
@@ -377,7 +352,7 @@
             }
 
             &::before {
-              background-color: #2f4b5e;
+              background-color: #4a7c9d;
               width: 0;
               height: 1px;
             }
@@ -386,37 +361,27 @@
               width: 120%;
               height: 0;
               margin-left: -10%;
-              background-color: #4a7c9d;
+              background-color: #aecee6;
+            }
+          }
+
+          
+          & > .img {
+            display: flex;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            position: relative;
+
+            & > a {
+              display: flex;
+              width: 100%;
+              object-fit: contain;
             }
           }
         }
       }
 
-      // 4a. 特殊パターン（not ._p5js）
-      &:not(._p5js) > ul > li > .img {
-        display: flex;
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        overflow: hidden;
-        position: relative;
-
-        & > a {
-          display: flex;
-          width: 100%;
-          object-fit: contain;
-        }
-      }
-
-      // 4b. 特殊パターン（._p5js）
-      &._p5js {
-        margin-top: 50px;
-
-        & > ul > li {
-          width: calc(50% - 40px);
-        }
-      }
-
-      // 4c. スクロールイン演出
       &.-effect.-scrollin > ul > li {
         .imgcover {
           animation: 2.6s forwards byeShutter;
@@ -425,7 +390,6 @@
         }
       }
 
-      // 4d. モバイル対応
       @media screen and (max-width: 767px) {
         & > ul {
           display: block;
@@ -444,24 +408,19 @@
               flex-direction: column;
               justify-content: center;
             }
-          }
-        }
 
-        &:not(._p5js) > ul > li > .img {
-          width: 150px;
-          margin-right: 20px;
-          flex-shrink: 0;
-        }
-
-        &._p5js > ul > li {
-          width: 100%;
-          & > .img {
-            width: 100%;
-            margin-right: 0;
+            & > .img {
+              width: 150px;
+              margin-right: 20px;
+              flex-shrink: 0;
+            }
           }
         }
       }
     }
-
+  }
+  .p5jsBox{
+    position: relative;
+    z-index: 10;
   }
 }

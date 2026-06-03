@@ -56,7 +56,6 @@ function TopPage() {
       timeline.to(
         shutter,
         {
-          opacity: 0,
           duration: 2.6,
           delay: 0.2,
           ease: 'power2.inOut',
@@ -74,8 +73,6 @@ function TopPage() {
         timeline.from(
           mainElement,
           {
-            scale: 0.95,
-            opacity: 0.8,
             duration: 2.6,
             ease: 'power2.out',
           },
@@ -89,8 +86,7 @@ function TopPage() {
     <div ref={containerRef}>
       <header id="topmv">
         <div className="sitetitle">
-          <h1 className="h1title tiltneon">Ai Creative Code Portfolio</h1>
-          <p className="subtitle sacramento">(Bday: 1989.09.25-)</p>
+          <h1 className="h1title sacramento">Ai Creative Code Portfolio</h1>
         </div>
 
         <div id="mvcanvas">
@@ -105,8 +101,10 @@ function TopPage() {
 
       <article id="article"><div id="articlewrap">
         <div className="incnt min">
-          <h2 className="copytitle tcspl -effect" dangerouslySetInnerHTML={{ __html: t('firstSection.title') }} />
-          <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('firstSection.text') }} />
+          <section className="block">
+            <h2 className="copytitle zen-kurenaido-regular tcspl -effectcopy" dangerouslySetInnerHTML={{ __html: t('firstSection.title') }} />
+            <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('firstSection.text') }} />
+          </section>
 
           <section className="block">
             <h2 className="blocktitle sacramento -effecttitle">
@@ -207,20 +205,11 @@ function TopPage() {
                   ))}
                 </ul>
               </div>
-              <div className="imagelist _p5js -effect">
-                <ul>
-                  <li>
-                    <div className="img">
-                      <div className="imgcover"></div>
-                      <DotsTime />
-                    </div>
-                  </li>
-                </ul>
-              </div>
             </div>
           </section>
         </div>
       </div></article>
+      <div className="p5jsBox"><DotsTime /></div>
     </div>
   );
 }
