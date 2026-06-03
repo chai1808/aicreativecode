@@ -24,6 +24,14 @@ const DotsTime: React.FC = () => {
       let clockDiameter: number;
       let bubbles: Bubble[] = [];
 
+      const calculateDimensions = () => {
+        let radius = p.min(p.width, p.height) / 2.4;
+        secondsRadius = radius * 0.71;
+        minutesRadius = radius * 0.6;
+        hoursRadius = radius * 0.5;
+        clockDiameter = radius * 1.7;
+      };
+
       p.setup = () => {
         const w = renderRef.current ? renderRef.current.clientWidth : 600;
         const canvas = p.createCanvas(w, 300);
@@ -35,11 +43,7 @@ const DotsTime: React.FC = () => {
         p.stroke(255);
         p.angleMode(p.DEGREES);
 
-        let radius = p.min(p.width, p.height) / 2.4;
-        secondsRadius = radius * 0.71;
-        minutesRadius = radius * 0.6;
-        hoursRadius = radius * 0.5;
-        clockDiameter = radius * 1.7;
+        calculateDimensions();
 
         p.noStroke();
         for (let i = 0; i < 50; i++) {
@@ -50,6 +54,14 @@ const DotsTime: React.FC = () => {
             speedX: p.random(0.5, 1.5),
             speedY: p.random(0.5, 1.5),
           });
+        }
+      };
+
+      p.windowResized = () => {
+        if (renderRef.current) {
+          const w = renderRef.current.clientWidth;
+          p.resizeCanvas(w, 300);
+          calculateDimensions();
         }
       };
 
