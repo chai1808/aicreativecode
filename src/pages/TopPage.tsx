@@ -171,7 +171,7 @@ function TopPage() {
                         {item.title}
                         {item.description && (
                           <>
-                          <br/><span className="small">({item.description})</span>
+                          <br/><span className="small">{item.description}</span>
                           </>
                         )}
                       </dd>
