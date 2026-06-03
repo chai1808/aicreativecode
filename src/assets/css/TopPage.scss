@@ -232,6 +232,9 @@
           position: absolute;
           top: 10px;
           left: 4px;
+          @media screen and (max-width: 767px) {
+            top: 20px;
+          }
         }
 
         & > dl > div {
