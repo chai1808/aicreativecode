@@ -131,6 +131,7 @@ label {
 // 翻訳切り替えスイッチ
 #translateswitcher {
   position: fixed;
+  z-index: 100;
   top: 5px;
   right: 10px;
 
