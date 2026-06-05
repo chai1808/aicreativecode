@@ -243,6 +243,12 @@ function TopPage() {
                     })}
                   </ul>
                 </div>
+                <div className="lastsns -effect tc"><div className="inwrap">
+                  <ul>
+                    <li><a href="https://note.com/a10ch1" target="_blank"><img src="/img/common/noteicon.svg" alt="Note"></img></a></li>
+                    <li><a href="https://github.com/chai1808" target="_blank"><img src="/img/common/github.png" alt="GitHub"></img></a></li>
+                  </ul>
+                </div></div>
              </div>
           </section>
         </div>
