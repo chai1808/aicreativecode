@@ -47,7 +47,6 @@ function TopPage() {
   const EducationalData = t('Educational.data', { returnObjects: true }) as EducationalItem[];
   const LicenseData = t('License.data', { returnObjects: true }) as LicenseItem[];
   const ArtData = t('Art.data', { returnObjects: true }) as ArtItem[];
-
   const URLData = t('URLs.data', { returnObjects: true }) as URLItem[];
 
   const animateIfExists = (
@@ -182,7 +181,7 @@ function TopPage() {
                         {item.title}
                         {item.description && (
                           <>
-                          <br/><span className="small">{item.description}</span>
+                          <br/><span className="small" dangerouslySetInnerHTML={{ __html: t(item.description) }} />
                           </>
                         )}
                       </dd>
@@ -212,7 +211,6 @@ function TopPage() {
                           <img src={item.imageSrc} alt={item.altText} />
                         </a>
                       </div>
-                      <p className="cap">{item.caption}</p>
                     </li>
                   ))}
                 </ul>

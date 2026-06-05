@@ -1,12 +1,12 @@
 {
   "firstSection": {
-    "title": "<span class='inb'>An Engineer Bridging Both</span> <span class='inb'>Backend and Frontend</span>",
-    "text": "<p>Prior to 2016, I worked as a systems engineer. Back then, I found great fulfillment and enjoyment in exploring problems like a puzzle and experiencing the sense of accomplishment when uncovering the root cause.</p><p>However, focusing solely on the backend made me increasingly aware of design-related issues, such as 'the system feels sluggish' or 'the design looks outdated.' Desiring to improve not just the core system but also the user experience and design, I transitioned to web production in 2016.</p><p>As the sole engineer in my web production roles, I handled a wide range of responsibilities, including WordPress customization, technical support, and workflow optimization.</p><p>For development projects, I built websites from scratch based on design drafts provided by designers via Illustrator. During the maintenance and operation phase, I implemented changes based on instruction sheets, frequently executing updates even without existing design assets.</p><p>I have a natural interest in art; on my days off, I create personal artwork as a hobby and read ZINEs in search of fresh ideas.</p><p>Moving forward, I aim to leverage my comprehensive experience in both backend and frontend development while expanding into data utilization. Operating under more systematized processes and guidelines, I want to continuously learn while engaging in work I find genuinely exciting. Ultimately, I aspire to be an engineer who contributes to raising the technological baseline of organizations and society from a long-term perspective.</p>"
+    "title": "<span class='inb'>Bridging Backend Engineering and</span> <span class='inb'>Frontend Experiences</span>",
+    "text": "<p>Prior to 2016, I worked as a systems engineer.<br>I enjoyed approaching technical challenges as if solving puzzles.</p><p>However, focusing solely on the backend made me increasingly aware of design-related issues.<br>I wanted to contribute not only to the core system but also to the user experience and visual design.<br>I transitioned to another web studio in 2016.</p><p>As the sole engineer on many web production projects, I handled a wide range of responsibilities, including WordPress customization, technical support, and workflow optimization.</p><p>For development projects, I built websites from scratch based on design mockups created in Adobe Illustrator.<br>During the maintenance phase, I implemented changes per instruction sheets, often implementing updates even when no design assets were provided.</p><p>Outside of work, I enjoy creating personal artwork and exploring independent publications and zines for creative inspiration.</p><p>I want to continue developing my skills in both backend and frontend development with my comprehensive experience.<br>I hope to continue working on projects that I find genuinely enjoyable and fulfilling over the long term.</p>"
   },
   "Career": {
     "data":   [{
       "date": "Nov 2011 - Sep 2012",
-      "mainTitle": "Website Production / System Maintenance & Updates",
+      "mainTitle": "Web Development / System Maintenance",
       "subDescription":
         "Developed booking forms for travel agencies; built corporate overview sites for nursing care/welfare and manufacturing companies.",
       "skills": [
@@ -16,7 +16,7 @@
     },
     {
       "date": "Jun 2013 - Dec 2013",
-      "mainTitle": "Website Production for a Newspaper Company",
+      "mainTitle": "Web Development for a Newspaper Company",
       "subDescription": "System development, unit testing, integration testing, and specification document creation.",
       "skills": ["PHP, XML, PostgreSQL, HTML, CSS, JavaScript, Smarty"]
     },
@@ -57,24 +57,24 @@
     },
     {
       "date": "May 2016 - Jun 2016",
-      "mainTitle": "Manufacturing Factory Operations & Maintenance Helpdesk",
+      "mainTitle": "Manufacturing Systems Support and Maintenance",
       "subDescription": "Backend system modification using C language, and log analysis.",
       "skills": ["C, Linux, VBA"]
     },
     {
       "date": "Aug 2016 - Jul 2018",
-      "mainTitle": "Website Production at a Medical Consulting Firm",
+      "mainTitle": "Web Development at a Medical Consulting Firm",
       "subDescription":
-        "Website production, responsive web design implementation, operations and updates, image processing, article content creation, and simple tool development.",
+        "Website development, responsive web design, maintenance, and content updates, image processing, article content creation, and simple tool development.",
       "skills": [
         "WordPress, Illustrator, Photoshop, CSS, HTML, JavaScript, PHP, jQuery, MySQL"
       ]
     },
     {
       "date": "Aug 2018 - May 2026",
-      "mainTitle": "Website Production at a Small-Scale B2B Production Company",
+      "mainTitle": "Web Developer at a Boutique B2B Web Production Agency",
       "subDescription":
-        "Website production, CSS animation, performance optimization, SEO optimization, improvement proposals, GA4/GTM tag implementation, general operations and updates, e-commerce shop launch, and customization.",
+        "Web Development, CSS animation, performance optimization, SEO optimization, improvement proposals, GA4/GTM tag implementation, ongoing website maintenance and support, e-commerce shop launch, and customization.",
       "skills": [
         "WordPress, Illustrator, Photoshop, CSS, HTML, JavaScript, SVG, PHP, jQuery, MySQL, Laravel"
       ]
@@ -86,7 +86,7 @@
         "name": "Nagoya City Nagoya Commercial High School"
       },
       {
-        "name": "Tokai Gakuen University, Faculty of Humanities, Department of Humanities (Attended up to 3rd year)"
+        "name": "Tokai Gakuen University, Faculty of Humanities, Department of Humanities (Attended through the third year)"
       }
     ]
   },
@@ -94,15 +94,15 @@
     "data": [
       {
         "year": "2007",
-        "title": "TOEIC 440 points",
+        "title": "TOEIC 440",
         "description":
-          "Taken at a time when my hearing difficulties and developmental disorders were undiagnosed, meaning the test was taken without accommodations. Reading comprehension for explicit information, understanding specifications, and fact-based English text processing were stable."
+          "Taken at a time when my hearing difficulties and developmental disorders were undiagnosed.<br>Reading comprehension for explicit information, understanding specifications, and fact-based English text processing were stable without accommodations."
       },
       {
         "year": "2008",
-        "title": "Eiken Grade 2",
+        "title": "Practical English Proficiency Test (Eiken), Grade 2",
         "description":
-          "Faced challenges regarding compatibility with the listening and interview formats, and have refrained from taking the exam since. At the time, I also attended the Kumon Higher Education Division for speed reading."
+          "At that time, I learned at the Kumon Higher Education Division for speed reading.<br>Due to the drawbacks of language comprehension, I struggled with the listening and interview sections, leading to a decision not to retake the exam."
       },
       {
         "year": "2009",
@@ -126,7 +126,7 @@
       },
       {
         "year": "2024",
-        "title": "Nazoken (Riddle Solving Test) - Grade 7",
+        "title": "Japanese Riddle-Solving Certification (Nazoken), Grade 7",
         "description": "Scored average, ranking 1,552nd out of 3,711 nationwide participants in 'Reasoning Ability.'"
       },
       {
@@ -140,38 +140,35 @@
     ]
   },
   "VisualThinking": {
-    "text": "<p><a href='https://chai1808.github.io/ai-assignment/' target='_blank' rel='noreferrer'>Here</a>, as part of exploring my own roots, I have published an ethnography on my personal website regarding the 'Mixed-race orphan community and its cultural transition' in 1970s Nagoya, which my grandparents were involved with.<br>Precisely because it is a sensitive theme, I conducted the research with a strong emphasis on objectivity and multi-faceted perspectives, eliminating subjective bias.<br>When investigating cross-cultural and social conditions, my rigorous process involved using primary information from local users on platforms like Reddit and X (formerly Twitter) as a starting point, and cross-checking it against secondary sources like Wikipedia and existing academic research to ensure there were no information biases or errors.<br>Similarly, in historical research, I prioritized tracing back to public and primary records, such as old books and contemporary newspaper articles, checking for consistency by comparing multiple documents.<br>Through this research into post-war history and social welfare, I developed a perspective of viewing issues not merely as individual problems, but in terms of how social systems and infrastructure impact people's lives.<br>As an extension of this, I have come to want to be involved in work from a standpoint where I can observe how systems and infrastructure function and where challenges arise when emergencies or social disruptions occur, without being swayed by emotions or personal stances.</p><p>These skills in document organization and structural thinking are also utilized in my current web production work.<br>Even now, it is my habit to directly consult English articles and overseas primary sources during work-related research. While I feel less confident with spoken English conversation, I have no trouble handling information gathering and analysis focused on English reading comprehension for practical operations.<br>In operation, maintenance, and optimization tasks, I prioritize the accuracy of information by reviewing announcements from official Google accounts and existing questions on Stack Overflow, and referencing the latest official English documentation whenever uncertainties arise.</p><p>Additionally, I have personally engaged in illustration creation and image processing.<br>I have always loved creating things that evoke emotion in viewers or communicate intuitively through expression. Regardless of the format of the activity, I intend to continue exploring this kind of expression moving forward.</p>"
+    "text": "<p>As part of researching my family background, I published an independent research article on the “<a href='https://chai1808.github.io/ai-assignment/' target='_blank' rel='noreferrer'>MIXED-RACE ORPHAN COMMUNITY AND ITS CULTURAL EVOLUTION</a>” in 1970s Nagoya, a movement in which my grandparents were involved.<br>Given the sensitive nature of the topic, I focused on staying objective and looking at it from multiple perspectives.<br>For this research to be accurate, I gathered a wide range of sources, from social media, old books, newspapers, and academic papers.<br>This experience taught me to view issues through the lens of social systems rather than as isolated incidents.</p><p>The ability to organize information and think in terms of systems directly translates to my current work in web development.<br>I routinely consult official English documentation from Google and tech communities to ensure that website maintenance and optimization are based on accurate information.</p><p>I like expressing feelings and ideas through design, and as a hobby, I have engaged in personal projects such as illustration, image processing, and video editing.<br>Moving forward, I look to continue exploring these forms of expression.</p>"
   },
   "Art": {
     "data": [
       {
         "imageSrc": "/img/index/pastwork/budou.jpg",
-        "altText": "Grape logo typography",
-        "caption": "Logo typography with a 'Grape' motif"
+        "altText": "Grape logo typography"
       },
       {
         "imageSrc": "/img/index/pastwork/deadalive.jpg",
-        "altText": "Schrodinger's cat design icon",
-        "caption": "An icon designed with inspiration drawn from Schrodinger's cat"
+        "altText": "Schrodinger's cat design icon"
       },
       {
         "imageSrc": "/img/index/pastwork/station.jpg",
-        "altText": "Jokoji Station image processing",
-        "caption": "An art piece created by processing a photo I took at Jokoji Station using CLIP STUDIO PAINT"
+        "altText": "Jokoji Station image processing"
       }
     ]
   },
   "URLs": {
     "data": [{
-      "text": "I'm currently learning Three.js",
+      "text": "Currently Exploring Three.js",
       "list": 
       [
         {
-          "title": "First project built with shaders",
+          "title": "First Project Built with Shader",
           "URL": "https://www.shadertoy.com/view/NfsGRM"
         },
         {
-          "title": "First project built with three.js",
+          "title": "First Project Built with Three.js",
           "URL": "https://learn-threejs-01project.vercel.app/"
         }
       ]
