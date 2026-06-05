@@ -116,17 +116,6 @@ const App: React.FC = () => {
         }
       );
     });
-  
-    const imageLists = gsap.utils.toArray<HTMLElement>('.imagelist.-effect');
-    imageLists.forEach((imageList) => {
-      ScrollTrigger.create({
-        trigger: imageList,
-        start: 'top center+=100',
-        once: true,
-        onEnter: () => imageList.classList.add('-scrollin'),
-      });
-    });
-  
   }, { scope: mainRef });
 
   return (

@@ -23,11 +23,6 @@ interface LicenseItem {
   title: string;
   description: string;
 }
-interface ArtItem {
-  imageSrc: string;
-  altText: string;
-  caption: string;
-}
 interface URLListItem {
   title: string;
   URL: string;
@@ -46,7 +41,6 @@ function TopPage() {
   const CareerData = t('Career.data', { returnObjects: true }) as CareerItem[];
   const EducationalData = t('Educational.data', { returnObjects: true }) as EducationalItem[];
   const LicenseData = t('License.data', { returnObjects: true }) as LicenseItem[];
-  const ArtData = t('Art.data', { returnObjects: true }) as ArtItem[];
   const URLData = t('URLs.data', { returnObjects: true }) as URLItem[];
 
   const animateIfExists = (
@@ -199,22 +193,6 @@ function TopPage() {
 
             <div className="visualthinking">
               <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('VisualThinking.text') }} />
-
-              <div className="imagelist -effect">
-                <ul>
-                  {Array.isArray(ArtData) &&
-                  ArtData.map((item: ArtItem, index: number) => (
-                    <li key={index}>
-                      <div className="img">
-                        <div className="imgcover"></div>
-                        <a href={item.imageSrc} data-lity>
-                          <img src={item.imageSrc} alt={item.altText} />
-                        </a>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </section>
 
@@ -245,8 +223,8 @@ function TopPage() {
                 </div>
                 <div className="lastsns -effect tc"><div className="inwrap">
                   <ul>
-                    <li><a href="https://note.com/chai1808" target="_blank"><img src="/img/common/noteicon.svg" alt="Note"></img></a></li>
-                    <li><a href="https://github.com/chai1808" target="_blank"><img src="/img/common/github.png" alt="GitHub"></img></a></li>
+                    <li><a href="https://note.com/chai1808" target="_blank"><img src="/common/noteicon.svg" alt="Note"></img></a></li>
+                    <li><a href="https://github.com/chai1808" target="_blank"><img src="/common/github.png" alt="GitHub"></img></a></li>
                   </ul>
                 </div></div>
              </div>
