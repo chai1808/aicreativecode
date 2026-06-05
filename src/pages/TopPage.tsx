@@ -235,7 +235,7 @@ function TopPage() {
                             <p className="itemtitle">{item.text}</p>
                             <div className="list">
                               <ul>
-                                {item.list.map((list: string, listIndex: number) => 
+                                {item.list.map((list: URLListItem, listIndex: number) => 
                                   <li key={listIndex}>・<a href={list.URL} target="_blank" rel="noreferrer">{list.title}</a></li>
                                 )}
                               </ul>
