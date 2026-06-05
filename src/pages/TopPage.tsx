@@ -28,6 +28,15 @@ interface ArtItem {
   altText: string;
   caption: string;
 }
+interface URLListItem {
+  title: string;
+  URL: string;
+}
+
+interface URLItem {
+  text: string;
+  list: URLListItem[];
+}
 
 gsap.registerPlugin(ScrollTrigger);
 
