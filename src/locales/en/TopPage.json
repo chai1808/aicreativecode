@@ -169,6 +169,10 @@
         {
           "title": "First project built with shaders",
           "URL": "https://www.shadertoy.com/view/NfsGRM"
+        },
+        {
+          "title": "First project built with three.js",
+          "URL": "https://learn-threejs-01project.vercel.app/"
         }
       ]
     }]
