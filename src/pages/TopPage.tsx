@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, Fragment } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -38,6 +38,8 @@ function TopPage() {
   const EducationalData = t('Educational.data', { returnObjects: true }) as EducationalItem[];
   const LicenseData = t('License.data', { returnObjects: true }) as LicenseItem[];
   const ArtData = t('Art.data', { returnObjects: true }) as ArtItem[];
+
+  const URLData = t('URLs.data', { returnObjects: true }) as URLItem[];
 
   const animateIfExists = (
     selector: string, 
@@ -190,7 +192,6 @@ function TopPage() {
             <div className="visualthinking">
               <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('VisualThinking.text') }} />
 
-
               <div className="imagelist -effect">
                 <ul>
                   {Array.isArray(ArtData) &&
@@ -208,6 +209,34 @@ function TopPage() {
                 </ul>
               </div>
             </div>
+          </section>
+
+          <section className="block">
+            <h2 className="blocktitle sacramento -effecttitle">
+              <span className="inwrap">URLs</span>
+            </h2>
+
+            <div className="txtbox -effect _1 tc">
+              <div className="inwrap">
+                <ul>
+                    {Array.isArray(URLData) &&
+                      URLData.map((item: URLItem, index: number) => {
+                        return (
+                          <li key={index}>
+                            <p className="itemtitle">{item.text}</p>
+                            <div className="list">
+                              <ul>
+                                {item.list.map((list: string, listIndex: number) => 
+                                  <li key={listIndex}>・<a href={list.URL} target="_blank" rel="noreferrer">{list.title}</a></li>
+                                )}
+                              </ul>
+                            </div>
+                          </li>
+                        );
+                    })}
+                  </ul>
+                </div>
+             </div>
           </section>
         </div>
       </div></article>
