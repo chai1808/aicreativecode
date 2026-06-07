@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useTranslation } from 'react-i18next';
+import DOMPurify from 'dompurify';
 
 import '../assets/css/TopPage.scss';
 
@@ -106,8 +107,14 @@ function TopPage() {
       <article id="article"><div id="articlewrap">
         <div className="incnt min">
           <section className="block">
-            <h2 className="copytitle zen-kurenaido-regular tcspl -effectcopy" dangerouslySetInnerHTML={{ __html: t('firstSection.title') }} />
-            <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('firstSection.text') }} />
+            <h2 
+              className="copytitle zen-kurenaido-regular tcspl -effectcopy" 
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t('firstSection.title')) }} 
+            />
+            <div 
+              className="txtbox -effect" 
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t('firstSection.text')) }} 
+            />
           </section>
 
           <section className="block">
@@ -175,7 +182,11 @@ function TopPage() {
                         {item.title}
                         {item.description && (
                           <>
-                          <br/><span className="small" dangerouslySetInnerHTML={{ __html: t(item.description) }} />
+                          <br/>
+                          <span 
+                            className="small" 
+                            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t(item.description)) }} 
+                          />
                           </>
                         )}
                       </dd>
@@ -192,7 +203,10 @@ function TopPage() {
             </h2>
 
             <div className="visualthinking">
-              <div className="txtbox -effect" dangerouslySetInnerHTML={{ __html: t('VisualThinking.text') }} />
+              <div 
+                className="txtbox -effect" 
+                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(t('VisualThinking.text')) }} 
+              />
             </div>
           </section>
 
