@@ -1,5 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import HttpApi from "i18next-http-backend";
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 import TopPageEN from './locales/en/TopPage.json';
@@ -14,14 +15,20 @@ const resources = {
   },
 };
 
+export const supportedLngs = {
+  en: "English",
+  ja: "日本語",
+};
+
 i18n
+  .use(HttpApi)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['TopPage'],
-    defaultNS: 'TopPage',
+    returnEmptyString: false,
+    supportedLngs: Object.keys(supportedLngs),
     interpolation: {
       escapeValue: false,
     },
