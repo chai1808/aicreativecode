@@ -15,7 +15,7 @@ const MVSketch = () => {
 
     const sketch = (p: p5) => {
       let density = 1;
-      let ctx: CanvasRenderingContext2D | null = null;
+      let ctx: CanvasRenderingContext2D | WebGLRenderingContext | WebGL2RenderingContext | null = null;
       let f = 1;
 
       p.setup = () => {
