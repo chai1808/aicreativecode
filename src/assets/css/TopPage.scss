@@ -31,7 +31,7 @@
   }
 }
 
-@keyframes sdb10 {
+@keyframes scrollarr {
   0% {
     transform: translate(0, 0);
     opacity: 0;
@@ -42,6 +42,62 @@
     opacity: 0;
   }
   100% { opacity: 0; }
+}
+
+@keyframes scrollripple {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes titleRainReveal {
+  0% {
+    opacity: 0;
+    filter: blur(18px);
+    transform: translateY(-24px) scaleY(0.96);
+    text-shadow: 0 0 24px rgba(255,255,255,0.85);
+  }
+  35% {
+    opacity: 0.6;
+    filter: blur(10px);
+    transform: translateY(-14px) scaleY(0.98);
+  }
+  65% {
+    opacity: 0.9;
+    filter: blur(5px);
+    transform: translateY(-6px) scaleY(0.99);
+    text-shadow: 0 0 16px rgba(255,255,255,0.55);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scaleY(1);
+    text-shadow: 0 0 10px rgba(255,255,255,0.2);
+  }
+}
+
+@keyframes titleRainOverlay {
+  0% {
+    opacity: 0.9;
+    transform: translateY(-18px) skewY(-12deg);
+    background-position: 0 0;
+  }
+  50% {
+    opacity: 0.55;
+    transform: translateY(-6px) skewY(-12deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px) skewY(-12deg);
+  }
 }
 
 
@@ -97,8 +153,8 @@
     justify-content: center;
     flex-direction: column;
     z-index: 10;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
     padding-bottom: 20px;
     position: absolute;
@@ -110,18 +166,42 @@
   }
 
   .h1title {
-    font-size: 5.6rem;
+    font-size: 6.8rem;
     z-index: 100;
     box-sizing: border-box;
     display: inline-block;
     background-clip: text;
     -webkit-background-clip: text;
     line-height: 1;
-    margin-bottom: 10px;
     color:#fff;
+    padding: 10px 15px;
+    border-radius: 20px;
+    position: relative;
+    font-weight: 500;
+    overflow: hidden;
+    animation: titleRainReveal 2.4s ease forwards 0.2s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-18px) skewY(-12deg);
+      background-image: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.18) 0,
+        rgba(255,255,255,0.18) 1px,
+        transparent 1px,
+        transparent 8px
+      );
+      background-size: 8px 24px;
+      animation: titleRainOverlay 2.4s ease forwards 0.2s;
+      mix-blend-mode: screen;
+    }
 
     @media screen and (max-width: 767px) {
-      font-size: 3.4rem;
+      font-size: 3.6rem;
     }
   }
 
@@ -155,20 +235,45 @@
 
 #scrolldown {
   position: absolute;
-  bottom: 80px;
+  bottom: 40px;
   left: 0;
   right: 0;
+  width: 30px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+
+  &::after {
+    content: "";
+    inset: 2px;
+    border: 6px solid rgba(255,255,255,.5);
+    border-radius: 50px;
+    animation: scrollripple 2s infinite;
+
+    height: calc(100% - 10px);
+    left: -3px;
+    margin: auto;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: calc(100% - 6px);
+    z-index: 1;
+  }
 
   span {
     position: absolute;
     top: 0;
     left: 50%;
-    width: 30px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
     margin-left: -15px;
     border: 2px solid #fff;
     border-radius: 50px;
     box-sizing: border-box;
+    background-color: #000;
+    z-index: 2;
 
     &::before {
       position: absolute;
@@ -180,7 +285,7 @@
       margin-left: -3px;
       background-color: #fff;
       border-radius: 100%;
-      animation: sdb10 2s infinite;
+      animation: scrollarr 2s infinite;
       box-sizing: border-box;
     }
   }
@@ -189,7 +294,6 @@
 #index {
   #articlewrap {
     
-    // 1. 共通テキストボックス
     .txtbox {
       margin-bottom: 30px;
 
@@ -220,7 +324,6 @@
       }
     }
 
-    // 2. 履歴・年表リスト
     .historydl1 {
       text-align: center;
 
@@ -286,7 +389,6 @@
         }
       }
 
-      // バリエーション修飾子（._1）
       &._1 > .inwrap > dl > div {
         & > dt {
           width: 180px;
@@ -307,7 +409,6 @@
       }
     }
 
-    // 3. ビジュアルシンキング
     .visualthinking > .txt {
       margin-bottom: 30px;
 

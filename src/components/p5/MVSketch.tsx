@@ -1,79 +1,96 @@
 import React, { useEffect, useRef } from 'react';
 import p5 from 'p5';
 
-const MVSketch: React.FC = () => {
-  const renderRef = useRef<HTMLDivElement>(null);
+const MVSketch = () => {
+  const renderRef = useRef(null);
 
   useEffect(() => {
-    if (!renderRef.current) return;
+    const el = renderRef.current;
+    if (!el) return;
 
-    let myP5: p5;
+    const getSize = () => ({
+      width: el.clientWidth || window.innerWidth,
+      height: el.clientHeight || window.innerHeight,
+    });
 
-    const sketch = (p: p5) => {
-      let n = 0;
+    const sketch = (p) => {
+      let density = 1;
+      let ctx = null;
       let f = 1;
-      let d: number;
-      let ctx: CanvasRenderingContext2D;
-      let bgCanvas: p5.Graphics;
-      let canvas: p5.Renderer;
 
       p.setup = () => {
-        const canvasSize = p.max(p.windowWidth, p.windowHeight);
-        canvas = p.createCanvas(canvasSize, canvasSize);
-        if (renderRef.current) {
-          canvas.parent(renderRef.current);
-        }
+        p.pixelDensity(1);
+        p.frameRate(15);
 
-        d = p.displayDensity();
-        ctx = p.drawingContext as CanvasRenderingContext2D;
+        const { width, height } = getSize();
+        p.createCanvas(width, height).parent(el);
 
-        bgCanvas = p.createGraphics(canvasSize, canvasSize);
-        bgCanvas.background('#4a7c9d');
+        p.colorMode(p.HSB, 360, 100, 100, 100);
+        density = p.displayDensity();
+        ctx = p.drawingContext;
       };
 
       p.windowResized = () => {
-        const canvasSize = p.max(p.windowWidth, p.windowHeight);
-        p.resizeCanvas(canvasSize, canvasSize);
-        bgCanvas.resizeCanvas(canvasSize, canvasSize);
-        bgCanvas.background('#4a7c9d');
+        const { width, height } = getSize();
+        p.resizeCanvas(width, height);
       };
 
       p.draw = () => {
-        const x = (p.windowWidth - p.width) / 2;
-        const y = (p.windowHeight - p.height) / 2;
-        canvas.position(x, y);
+        p.background('#000a14');
 
-        p.image(bgCanvas, 0, 0);
+        const step = 15;
+        const t = p.frameCount * 0.2;
+        const cols = Math.ceil(p.width / step);
+        const rows = Math.ceil(p.height / step);
 
-        p.push();
+        p.noStroke();
+        p.fill('#33CCC9');
+
+        for (let i = 0; i <= cols; i += 1.5) {
+          for (let j = 0; j <= rows; j += 1.5) {
+            const noiseVal = p.noise(i * 10, j * 10, t);
+            p.ellipse(i * step, j * step, step * (0.2 + noiseVal));
+          }
+        }
+
         p.noFill();
-        p.stroke(255, 255, 255, 100);
+        p.stroke('#bde7f2');
         p.strokeWeight(1);
-        f += 1;
 
         if (ctx) {
-          ctx.shadowColor = '#fff';
-          ctx.shadowBlur = 30 * d;
+          ctx.shadowColor = 'rgba(12, 162, 192, 0.35)';
+          ctx.shadowBlur = 20 * density;
         }
 
-        for (n = f % 40; n < 200; n += 40) {
-          p.circle(p.width * p.noise(n - f), p.height * p.noise(n - f, 1), n);
+        f += 3;
+
+        const phase = f % 36;
+        for (let n = phase; n < 200; n += 36) {
+          const radius = Math.pow(n / 200, 0.8) * 200;
+          p.circle(
+            p.width * p.noise(n - f),
+            p.height * p.noise(n - f, 1),
+            radius
+          );
         }
-        p.pop();
       };
     };
 
-    renderRef.current.innerHTML = '';
-    myP5 = new p5(sketch, renderRef.current);
+    const myP5 = new p5(sketch, el);
 
-    return () => {
-      if (myP5) {
-        myP5.remove();
-      }
-    };
+    return () => myP5.remove();
   }, []);
 
-  return <div ref={renderRef}></div>;
+  return (
+    <div
+      ref={renderRef}
+      style={{
+        width: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+      }}
+    />
+  );
 };
 
 export default MVSketch;

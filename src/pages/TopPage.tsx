@@ -95,7 +95,6 @@ function TopPage() {
         </div>
 
         <div id="mvcanvas">
-          <div className="watercover"></div>
           <MVSketch />
         </div>
 
