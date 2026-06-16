@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import p5 from 'p5';
 
 const MVSketch = () => {
-  const renderRef = useRef(null);
+  const renderRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const el = renderRef.current;
@@ -13,9 +13,9 @@ const MVSketch = () => {
       height: el.clientHeight || window.innerHeight,
     });
 
-    const sketch = (p) => {
+    const sketch = (p: p5) => {
       let density = 1;
-      let ctx = null;
+      let ctx: CanvasRenderingContext2D | null = null;
       let f = 1;
 
       p.setup = () => {
