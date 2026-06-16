@@ -15,7 +15,7 @@ const MVSketch = () => {
 
     const sketch = (p: p5) => {
       let density = 1;
-      let ctx: CanvasRenderingContext2D | WebGLRenderingContext | WebGL2RenderingContext | null = null;
+      let ctx: CanvasRenderingContext2D | null = null;
       let f = 1;
 
       p.setup = () => {
@@ -27,7 +27,7 @@ const MVSketch = () => {
 
         p.colorMode(p.HSB, 360, 100, 100, 100);
         density = p.displayDensity();
-        ctx = p.drawingContext;
+        ctx = p.drawingContext as CanvasRenderingContext2D;
       };
 
       p.windowResized = () => {
