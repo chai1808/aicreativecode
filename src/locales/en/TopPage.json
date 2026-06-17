@@ -156,6 +156,10 @@
           "URL": "https://www.shadertoy.com/view/NfsGRM"
         },
         {
+          "title": "First Project Built with Three.js",
+          "URL": "https://learn-threejs-01project.vercel.app/"
+        },
+        {
           "title": "Multi-Section WebGL Animation (Three.js)",
           "URL": "https://scroll-template-iota.vercel.app/"
         }
