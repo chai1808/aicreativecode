@@ -3,7 +3,7 @@ import { useGSAP } from '@gsap/react'
 
 import '../assets/css/TopPage.scss'
 
-import LazyMVSketch from '../components/p5/LazyMVSketch'
+import MVSketch from '../components/p5/MVSketch'
 import LazyDotsTime from '../components/p5/LazyDotsTime'
 import { setupPageShutterAnimation } from '../scrollAnimations'
 
@@ -29,7 +29,7 @@ const TopPage = () => {
         </div>
 
         <div id="mvcanvas">
-          <LazyMVSketch />
+          <MVSketch />
         </div>
 
         <p id="scrolldown">
