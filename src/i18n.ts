@@ -1,10 +1,10 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import HttpApi from "i18next-http-backend";
-import LanguageDetector from 'i18next-browser-languagedetector';
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
 
-import TopPageEN from './locales/en/TopPage.json';
-import TopPageJA from './locales/ja/TopPage.json'; 
+import TopPageEN from './locales/en/TopPage.json'
+import TopPageJA from './locales/ja/TopPage.json'
+
+const STORAGE_KEY = 'aicreativecode-lang'
 
 const resources = {
   en: {
@@ -13,25 +13,32 @@ const resources = {
   ja: {
     TopPage: TopPageJA,
   },
-};
+}
 
 export const supportedLngs = {
-  en: "English",
-  ja: "日本語",
-};
+  en: 'English',
+  ja: '日本語',
+}
 
-i18n
-  .use(HttpApi)
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources,
-    fallbackLng: 'en',
-    returnEmptyString: false,
-    supportedLngs: Object.keys(supportedLngs),
-    interpolation: {
-      escapeValue: false,
-    },
-  });
+const getInitialLanguage = (): string => {
+  const stored = localStorage.getItem(STORAGE_KEY)
+  if (stored === 'ja' || stored === 'en') return stored
+  return navigator.language.startsWith('ja') ? 'ja' : 'en'
+}
 
-export default i18n;
+i18n.use(initReactI18next).init({
+  resources,
+  lng: getInitialLanguage(),
+  fallbackLng: 'en',
+  returnEmptyString: false,
+  supportedLngs: Object.keys(supportedLngs),
+  interpolation: {
+    escapeValue: false,
+  },
+})
+
+i18n.on('languageChanged', (lang) => {
+  localStorage.setItem(STORAGE_KEY, lang)
+})
+
+export default i18n

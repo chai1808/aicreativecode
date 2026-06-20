@@ -1,13 +1,9 @@
-import { createRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client'
 
-import './assets/css/common.scss';
-import './assets/css/add/lity.min.css';
+import './gsapSetup'
+import './i18n'
+import './assets/css/common.scss'
 
-import App from './App.tsx';
+import App from './App'
 
-// ページシャッター要素を作成
-const pageShutter = document.createElement('div');
-pageShutter.id = 'pageshutter';
-document.body.prepend(pageShutter);
-
-createRoot(document.getElementById('root')!).render(<App />);
+createRoot(document.getElementById('root')!).render(<App />)
