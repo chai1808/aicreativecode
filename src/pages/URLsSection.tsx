@@ -8,7 +8,7 @@ const URLsSection = () => {
   return (
     <section className="block">
       <h2 className="blocktitle sacramento -effecttitle">
-        <span className="inwrap">URLs</span>
+        <span className="inwrap">Works</span>
       </h2>
 
       <div className="txtbox -effect _1 tc">

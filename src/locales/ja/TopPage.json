@@ -152,7 +152,7 @@
         "list": 
         [
           {
-            "title": "Fitbit・気圧変動連携ポモドーロタイマーアプリケーション",
+            "title": "Fitbit・気圧変動連携タイマー",
             "description": "CursorのAgent Modeを活用して開発",
             "URL": "https://pomodoro-healthlink.vercel.app/"
           }
