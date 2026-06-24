@@ -302,9 +302,27 @@
         margin-bottom: 20px;
       }
 
-      .itemtitle{
-        text-align: center!important;
-        font-weight: bold;
+      .list{
+        margin-bottom: 20px;
+        text-align: center;
+        & > ul > li{
+          line-height: 1.8;
+
+          &:not(:last-child) {
+            margin-bottom: 15px;
+          }
+
+          & > .itemdesc{
+            color: #ccc;
+            font-size: 1.4rem;
+          }
+        }
+    
+        & + .itemcaution{
+          color: #ccc;
+          font-size: 1.4rem;
+          text-align: center;
+        }
       }
 
       a {

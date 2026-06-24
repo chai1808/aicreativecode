@@ -18,6 +18,7 @@ export interface LicenseItem {
 export interface URLListItem {
   title: string
   URL: string
+  description?: string
 }
 
 export interface URLItem {

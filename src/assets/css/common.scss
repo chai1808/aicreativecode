@@ -314,10 +314,7 @@ label {
 }
 
 .lastsns{
-  margin-top: 20px;
-  @media screen and (max-width: 767px) {
-    margin-top: 15px;
-  }
+  margin-top: 8px;
   &>.inwrap{
     text-align: center;
     &>ul{

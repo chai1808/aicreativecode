@@ -17,23 +17,19 @@ const URLsSection = () => {
             {Array.isArray(urlData) &&
               urlData.map((item, index) => (
                 <li key={index}>
-                  <p className="itemtitle">{item.text}</p>
                   <div className="list">
                     <ul>
                       {item.list.map((listItem, listIndex) => (
                         <li key={listIndex}>
-                          ・
-                          <a
-                            href={listItem.URL}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {listItem.title}
-                          </a>
+                          <p className="itemtitle">・<a href={listItem.URL} target="_blank" rel="noreferrer">{listItem.title}</a></p>
+                          {listItem.description && (
+                            <p className="itemdesc">{listItem.description}</p>
+                          )}
                         </li>
                       ))}
                     </ul>
                   </div>
+                  <p className="itemcaution">{item.text}</p>
                 </li>
               ))}
           </ul>

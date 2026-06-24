@@ -149,22 +149,15 @@
   "URLs": {
     "data": [
       {
-        "text": "現在Three.js学習中",
         "list": 
         [
           {
-            "title": "Shader(試作)",
-            "URL": "https://www.shadertoy.com/view/NfsGRM"
-          },
-          {
-            "title": "Three.js(試作)",
-            "URL": "https://learn-threejs-01project.vercel.app/"
-          },
-          {
-            "title": "Three.js(複数セクションWebGL試作)",
-            "URL": "https://scroll-template-iota.vercel.app/"
+            "title": "Fitbit・気圧変動連携ポモドーロタイマーアプリケーション",
+            "description": "CursorのAgent Modeを活用して開発",
+            "URL": "https://pomodoro-healthlink.vercel.app/"
           }
-        ]
+        ],
+        "text": "現在Three.js学習中"
       }
     ]
   }
