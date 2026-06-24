@@ -314,7 +314,12 @@ label {
 }
 
 .lastsns{
-  margin-top: 8px;
+  &>.itemcaution{
+    font-size: 1.4rem;
+    color: #ccc;
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
   &>.inwrap{
     text-align: center;
     &>ul{

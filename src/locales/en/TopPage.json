@@ -147,16 +147,6 @@
     "text": "<p>As part of exploring my personal roots, I have published a research article on the \"<a href='https://chai1808.github.io/ai-assignment/' target='_blank' rel='noreferrer'>Community of Mixed-Heritage Orphans in 1970s Nagoya and Its Cultural Evolution</a>\", a history my grandparents were closely involved in.</p><p>Given the sensitive nature of this topic, I approached the research with strict objectivity, prioritizing diverse viewpoints.<br>I gathered a wide range of sources, from rare books to international research papers, carefully cross-checking them to ensure historical accuracy.</p><p>Through this project, I learned to view individual events not as detached points, but as elements connected to a larger surface, mapping them within a broader social and structural context.<br>This structural thinking directly translate into my web development work today.<br>In my daily practice, I rely on official Google documentation and technical community insights to ensure reliable system operation, maintenance, and optimization.</p><p>At the same time, I love using creative medium as a language to express my inner state and connect deeply.<br>On my days off, drawing inspiration from zines and museum visits, I have worked on various projects, including image processing, digital art, video editing, and creative coding.<br>I am particularly drawn to spirituality and the inner world, continuously researching and reinterpreting surreal and avant-garde art.</p><p>Through these sociocultural perspectives, I aim to visualize inner landscapes and psychological imagery.<br>Going forward, I want to keep exploring immersive design that stems from this inner world, creating experiences that evoke a rich spectrum of emotions.</p>"
   },
   "URLs": {
-    "data": [{
-      "list": 
-      [
-        {
-          "title": "Fitbit & Barometric Pressure Integrated Timer",
-          "description": "Developed with Cursor Agent Mode",
-          "URL": "https://pomodoro-healthlink.vercel.app/"
-        }
-      ],
-      "text": "Currently Exploring Three.js"
-    }]
+    "message": "Exploring Three.js"
   }
 }
