@@ -13,7 +13,7 @@ const MVSketch = () => {
 
     p.setup = () => {
       p.pixelDensity(1)
-      p.frameRate(15)
+      p.frameRate(10)
 
       const { width, height } = getSize()
       p.createCanvas(width, height).parent(el)
@@ -31,38 +31,32 @@ const MVSketch = () => {
     p.draw = () => {
       p.background('#000a14')
 
-      const step = 15
-      const t = p.frameCount * 0.2
-      const cols = Math.ceil(p.width / step)
-      const rows = Math.ceil(p.height / step)
-
-      p.noStroke()
-      p.fill('#33CCC9')
-
-      for (let i = 0; i <= cols; i += 1.5) {
-        for (let j = 0; j <= rows; j += 1.5) {
-          const noiseVal = p.noise(i * 10, j * 10, t)
-          p.ellipse(i * step, j * step, step * (0.2 + noiseVal))
-        }
-      }
 
       p.noFill()
       p.stroke('#bde7f2')
       p.strokeWeight(1)
 
       if (ctx) {
-        ctx.shadowColor = 'rgba(12, 162, 192, 0.35)'
-        ctx.shadowBlur = 20 * density
+        ctx.shadowColor = 'rgba(12, 162, 192, 0.18)'
+        ctx.shadowBlur = 8 * density
       }
 
-      f += 3
+      f += 2
 
       const phase = f % 36
-      for (let n = phase; n < 200; n += 36) {
-        const radius = Math.pow(n / 200, 0.8) * 200
+      for (let n = phase; n < 300; n += 36) {
+        const progress = n / 300
+        const radius = Math.pow(progress, 0.8) * 170
+        
+        const alpha = 100 * (1 - progress)
+        
+        ctx.shadowBlur = (4 + progress * 18) * density
+        
+        p.stroke(190, 20, 95, alpha)
+        
         p.circle(
-          p.width * p.noise(n - f),
-          p.height * p.noise(n - f, 1),
+          p.width * p.noise((n - f) * 0.04),
+          p.height * p.noise((n - f) * 0.04, 1),
           radius
         )
       }

@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 const queryElement = (selector: string): HTMLElement | null =>
   document.querySelector(selector) as HTMLElement | null
 
+const GENTLE_EASE = 'power1.out'
+
 export const setupBlockScrollAnimations = () => {
   const sections = gsap.utils.toArray<HTMLElement>('.block')
 
@@ -31,8 +33,8 @@ export const setupBlockScrollAnimations = () => {
         {
           opacity: 1,
           filter: 'blur(0px)',
-          duration: 0.8,
-          ease: 'power2.out',
+          duration: 1,
+          ease: GENTLE_EASE,
         }
       )
     }
@@ -41,9 +43,9 @@ export const setupBlockScrollAnimations = () => {
       tl.fromTo(
         titleInwrap,
         {
-          opacity: 0.3,
-          color: '#4a3b5c',
-          textShadow: '0 0 2px rgba(247, 231, 254, 0.2)',
+          opacity: 0,
+          color: '#6a5a7a',
+          textShadow: '0 0 2px rgba(247, 231, 254, 0.15)',
         },
         {
           opacity: 1,
@@ -51,8 +53,8 @@ export const setupBlockScrollAnimations = () => {
           color: '#fff',
           textShadow:
             '0 0 4px #fff, 0 0 10px #f7e7fe, 0 0 20px #f1d6f8, 0 0 30px #c8b4dc, 0 0 40px #9678b4',
-          duration: 0.3,
-          ease: 'power4.inOut',
+          duration: 0.5,
+          ease: GENTLE_EASE,
         }
       )
     }
@@ -60,14 +62,14 @@ export const setupBlockScrollAnimations = () => {
     if (content) {
       tl.fromTo(
         content,
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 12 },
         {
           opacity: 1,
           y: 0,
-          duration: 1.6,
-          ease: 'power2.out',
+          duration: 1,
+          ease: GENTLE_EASE,
         },
-        '>0.4'
+        '>0.25'
       )
 
       const param = content.querySelector('.param')
@@ -78,8 +80,8 @@ export const setupBlockScrollAnimations = () => {
           {
             height: 'calc(100% - 10px)',
             opacity: 1,
-            duration: 1.8,
-            ease: 'power2.inOut',
+            duration: 1.2,
+            ease: 'power1.inOut',
           },
           '<'
         )
@@ -96,7 +98,7 @@ export const setupGeneralScrollAnimations = () => {
   generalEffects.forEach((target) => {
     gsap.fromTo(
       target,
-      { opacity: 0, y: 20 },
+      { opacity: 0, y: 10 },
       {
         scrollTrigger: {
           trigger: target,
@@ -105,8 +107,8 @@ export const setupGeneralScrollAnimations = () => {
         },
         opacity: 1,
         y: 0,
-        duration: 1.6,
-        ease: 'power2.out',
+        duration: 1,
+        ease: GENTLE_EASE,
       }
     )
   })
@@ -123,7 +125,7 @@ export const setupPageShutterAnimation = () => {
     {
       duration: 2.6,
       delay: 0.2,
-      ease: 'power2.inOut',
+      ease: 'power1.inOut',
       onComplete: () => {
         shutter.style.pointerEvents = 'none'
         shutter.style.zIndex = '-1'
@@ -139,7 +141,7 @@ export const setupPageShutterAnimation = () => {
       mainElement,
       {
         duration: 2.6,
-        ease: 'power2.out',
+        ease: GENTLE_EASE,
       },
       0
     )

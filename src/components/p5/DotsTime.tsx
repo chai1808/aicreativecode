@@ -27,6 +27,7 @@ const DotsTime = () => {
     p.setup = () => {
       const w = el.clientWidth || 600
       p.createCanvas(w, 300).parent(el)
+      p.frameRate(15)
 
       p.stroke(255)
       p.angleMode(p.DEGREES)
@@ -39,8 +40,8 @@ const DotsTime = () => {
           x: p.random(-100, p.width + 100),
           y: p.random(-100, p.height + 100),
           size: p.random(10, 40),
-          speedX: p.random(0.5, 1.5),
-          speedY: p.random(0.5, 1.5),
+          speedX: p.random(0.4, 1.5),
+          speedY: p.random(0.5, 1.1),
         })
       }
     }
@@ -55,15 +56,15 @@ const DotsTime = () => {
       p.background(25, 15, 40)
 
       p.noStroke()
-      p.fill(120, 255, 200, 120)
+      p.fill(120, 255, 200, 90)
 
       for (const bubble of bubbles) {
-        const pulse = p.sin(p.frameCount * 0.1 + bubble.x) * 3
+        const pulse = p.sin(p.frameCount * 0.07 + bubble.x) * 2
         p.ellipse(bubble.x, bubble.y, bubble.size + pulse)
 
         bubble.x += bubble.speedX
         bubble.y -= bubble.speedY
-        bubble.x += p.sin(p.frameCount * 0.05 + bubble.y) * 0.8
+        bubble.x += p.sin(p.frameCount * 0.04 + bubble.y) * 0.75
 
         if (bubble.x > p.width + 20 || bubble.y < -20) {
           bubble.x = p.random(-50, p.width)
