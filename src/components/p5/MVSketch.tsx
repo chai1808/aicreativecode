@@ -3,7 +3,6 @@ import type p5 from "p5";
 
 const MVSketch = () => {
   const renderRef = useP5Sketch((el) => (p) => {
-    let density = 1
     let ctx: CanvasRenderingContext2D | null = null
 
     const getSize = () => ({
