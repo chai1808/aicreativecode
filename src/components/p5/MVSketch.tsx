@@ -41,7 +41,7 @@ const MVSketch = () => {
 
       p.colorMode(p.HSB, 360, 100, 100, 100)
 
-      p.displayDensity()
+      p.displayDensity( )
       ctx = p.drawingContext as CanvasRenderingContext2D
 
       buildStarLayer()
