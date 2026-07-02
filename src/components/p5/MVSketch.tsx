@@ -3,8 +3,6 @@ import type p5 from "p5";
 
 const MVSketch = () => {
   const renderRef = useP5Sketch((el) => (p) => {
-    let ctx: CanvasRenderingContext2D | null = null
-
     const getSize = () => ({
       width: el.clientWidth || window.innerWidth,
       height: el.clientHeight || window.innerHeight,
@@ -41,8 +39,6 @@ const MVSketch = () => {
       p.colorMode(p.HSB, 360, 100, 100, 100)
 
       p.displayDensity( )
-      ctx = p.drawingContext as CanvasRenderingContext2D
-
       buildStarLayer()
     }
 
