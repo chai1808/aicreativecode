@@ -21,6 +21,9 @@ export const supportedLngs = {
 }
 
 const getInitialLanguage = (): string => {
+  // SSG（ビルド時）は localStorage/navigator が無いため日本語を既定にする
+  if (import.meta.env.SSR) return 'ja'
+
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored === 'ja' || stored === 'en') return stored
   return navigator.language.startsWith('ja') ? 'ja' : 'en'
@@ -38,6 +41,7 @@ i18n.use(initReactI18next).init({
 })
 
 i18n.on('languageChanged', (lang) => {
+  if (import.meta.env.SSR) return
   localStorage.setItem(STORAGE_KEY, lang)
 })
 

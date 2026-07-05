@@ -1,11 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import type { ViteReactSSGOptions } from 'vite-react-ssg'
+
+const ssgOptions: ViteReactSSGOptions = {
+  entry: 'src/main.tsx',
+  script: 'async',
+}
 
 export default defineConfig({
   plugins: [react()],
   server: {
     open: 'msedge',
   },
+  ssgOptions,
   build: {
     rollupOptions: {
       output: {

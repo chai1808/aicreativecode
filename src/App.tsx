@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 
 import TopPage from './pages/TopPage'
@@ -11,6 +11,11 @@ import {
 
 const App = () => {
   const mainRef = useRef<HTMLElement>(null)
+
+  // シャッター演出中に p5 を先読みして MV 表示の遅延を防ぐ（クライアント限定）
+  useEffect(() => {
+    void import('p5')
+  }, [])
 
   useGSAP(
     () => {

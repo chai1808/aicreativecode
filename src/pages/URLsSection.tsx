@@ -1,12 +1,7 @@
-import { useTranslation } from 'react-i18next'
-import SanitizedHtml from './SanitizedHtml'
-
 const URLsSection = () => {
-  const { t } = useTranslation('TopPage')
 
   return (
     <div className="lastsns tc">
-      <SanitizedHtml className="itemcaution" html={t('URLs.message')} />
       <div className="inwrap">
         <ul>
           <li>
