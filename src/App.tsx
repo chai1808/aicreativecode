@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 
 import TopPage from './pages/TopPage'
+import PageMeta from './PageMeta'
 import PageShutter from './PageShutter'
 import LanguageSwitcher from './LanguageSwitcher'
 import {
@@ -27,6 +28,7 @@ const App = () => {
 
   return (
     <>
+      <PageMeta />
       <PageShutter />
       <main id="main" ref={mainRef}>
         <div className="app-container">
