@@ -5,7 +5,7 @@
   },
   "firstSection": {
     "copytitle": "<span class='inb'>Keeping Websites Accessible,</span><span class='inb'>Secure, and Reliable</span>",
-    "text": "<p>Leveraging my web development experience, I’m currently expanding my expertise in the fundamentals of web security, web accessibility and universal design.<br>I believe a website's value does not end at launch—it grows through continuous improvement and long-term maintenance. My goal is to help create websites that remain secure, and easy to use for everyone by improving their quality over time.</p>",
+    "text": "<p>Leveraging my web development experience, I’m currently revisiting web security and web accessibility through a more structured and systematic approach.<br>I believe a website's value does not end at launch—it grows through continuous improvement and long-term maintenance. My goal is to help create websites that remain secure, and easy to use for everyone by improving their quality over time.</p>",
     "faq": [{
       "question": "What kind of engineering experience do you have?",
       "answer": "<div class='underline'><p class='inwrap'>I have worked across both backend development and web development throughout my career.</p></div><p>Before 2016, I worked as a backend engineer, where I specialized in identifying root causes and solving technical problems.<br>In 2016, I transitioned into web development because I wanted to improve not only the underlying systems but also the design and overall user experience of websites.</p>"
