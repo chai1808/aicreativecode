@@ -5,6 +5,11 @@ export interface CareerItem {
   skills: string[]
 }
 
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
 export interface EducationalItem {
   name: string
 }

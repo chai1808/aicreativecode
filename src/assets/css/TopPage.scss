@@ -292,6 +292,62 @@
 
 #index {
   #articlewrap {
+
+    .faqlist{
+      padding-bottom: 20px;
+      .faqgroup{
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 1px dashed #fff;
+        @media screen and (max-width: 767px) {
+          margin-top: 20px;
+          padding-top: 20px;
+        }
+      }
+
+      .question{
+        font-size: 2rem;
+        font-weight: normal;
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+        line-height: 1.8;
+        & > h3{
+          display: inline;
+        }
+        &:before{
+          content: "Q.";
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        @media screen and (max-width: 767px) {
+          font-size: 1.6rem;
+          margin-bottom: 5px;
+        }
+      }
+
+      .answer{
+        padding-left: 30px;
+        padding-top: 5px;
+        position: relative;
+        & > div >p:not(:last-child){
+          margin-bottom: 15px;
+        }
+        &:before{
+          content: "A.";
+          font-family: "Zen Kurenaido", sans-serif;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          display: block;
+          font-size: 1.8rem;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
     
     .txtbox {
       margin-bottom: 30px;

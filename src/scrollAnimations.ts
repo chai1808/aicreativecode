@@ -6,6 +6,31 @@ const queryElement = (selector: string): HTMLElement | null =>
 
 const GENTLE_EASE = 'power1.out'
 
+const setupFaqGroupAnimations = (faqGroups: HTMLElement[]) => {
+  faqGroups.forEach((faqGroup) => {
+    const underline = faqGroup.querySelector<HTMLElement>('.answer .underline')
+
+    gsap.fromTo(
+      faqGroup,
+      { opacity: 0, y: 12 },
+      {
+        scrollTrigger: {
+          trigger: faqGroup,
+          start: 'top center+=150',
+          toggleActions: 'play none none reverse',
+          onEnter: () => underline?.classList.add('-is-visible'),
+          onLeaveBack: () => underline?.classList.remove('-is-visible'),
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: GENTLE_EASE,
+      }
+    )
+  })
+  ScrollTrigger.refresh()
+}
+
 export const setupBlockScrollAnimations = () => {
   const sections = gsap.utils.toArray<HTMLElement>('.block')
 
@@ -13,6 +38,13 @@ export const setupBlockScrollAnimations = () => {
     const titleInwrap = section.querySelector('.-effecttitle .inwrap')
     const copy = section.querySelector('.-effectcopy')
     const content = section.querySelector('.historydl1, .txtbox, .visualthinking')
+    const faqGroups = gsap.utils.toArray<HTMLElement>(
+      section.querySelectorAll('dl.faqlist > .faqgroup')
+    )
+
+    if (faqGroups.length) {
+      gsap.set(faqGroups, { opacity: 0, y: 12 })
+    }
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -86,6 +118,10 @@ export const setupBlockScrollAnimations = () => {
           '<'
         )
       }
+    }
+
+    if (faqGroups.length) {
+      tl.call(() => setupFaqGroupAnimations(faqGroups))
     }
   })
 }
