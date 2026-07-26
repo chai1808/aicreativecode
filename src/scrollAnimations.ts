@@ -6,10 +6,52 @@ const queryElement = (selector: string): HTMLElement | null =>
 
 const GENTLE_EASE = 'power1.out'
 
+const FAQ_GROUP_SELECTOR = 'dl.faqlist > .faqgroup'
+
+const getFaqGroups = (): HTMLElement[] =>
+  gsap.utils.toArray<HTMLElement>(FAQ_GROUP_SELECTOR)
+
+const setFaqUnderlineVisible = (faqGroup: HTMLElement, isVisible: boolean) => {
+  faqGroup.querySelectorAll<HTMLElement>('.answer .underline').forEach((el) => {
+    el.classList.toggle('-is-visible', isVisible)
+  })
+}
+
+/** 現在表示中の言語で -is-visible が付いている faqGroup の index を返す */
+export const collectVisibleFaqUnderlineIndices = (): number[] =>
+  getFaqGroups().flatMap((faqGroup, index) => {
+    const underline = faqGroup.querySelector('.answer .underline')
+    return underline?.classList.contains('-is-visible') ? [index] : []
+  })
+
+/** 言語切替後、同じ index の underline に -is-visible を復元する */
+export const applyFaqUnderlineVisibility = (indices: number[]): void => {
+  const faqGroups = getFaqGroups()
+  indices.forEach((index) => {
+    const faqGroup = faqGroups[index]
+    if (faqGroup) setFaqUnderlineVisible(faqGroup, true)
+  })
+}
+
+let pendingFaqUnderlineIndices: number[] | null = null
+
+/** 言語切替前に呼び、表示中の underline index を退避する */
+export const stashFaqUnderlineIndicesForLanguageSwitch = (): void => {
+  pendingFaqUnderlineIndices = collectVisibleFaqUnderlineIndices()
+}
+
+/** FAQ 描画完了後に呼び、退避した index の underline を復元する */
+export const restoreStashedFaqUnderlineVisibility = (): void => {
+  if (!pendingFaqUnderlineIndices?.length) {
+    pendingFaqUnderlineIndices = null
+    return
+  }
+  applyFaqUnderlineVisibility(pendingFaqUnderlineIndices)
+  pendingFaqUnderlineIndices = null
+}
+
 const setupFaqGroupAnimations = (faqGroups: HTMLElement[]) => {
   faqGroups.forEach((faqGroup) => {
-    const underline = faqGroup.querySelector<HTMLElement>('.answer .underline')
-
     gsap.fromTo(
       faqGroup,
       { opacity: 0, y: 12 },
@@ -18,8 +60,8 @@ const setupFaqGroupAnimations = (faqGroups: HTMLElement[]) => {
           trigger: faqGroup,
           start: 'top center+=150',
           toggleActions: 'play none none reverse',
-          onEnter: () => underline?.classList.add('-is-visible'),
-          onLeaveBack: () => underline?.classList.remove('-is-visible'),
+          onEnter: () => setFaqUnderlineVisible(faqGroup, true),
+          onLeaveBack: () => setFaqUnderlineVisible(faqGroup, false),
         },
         opacity: 1,
         y: 0,

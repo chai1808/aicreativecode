@@ -13,13 +13,16 @@ const SanitizedHtml = ({
   tag: Tag = 'div',
 }: SanitizedHtmlProps) => {
   // SSG/初回ハイドレーション時は信頼済みの内部コンテンツを生のまま描画し、
-  // マウント後にクライアント側で DOMPurify による無害化を適用する。
-  // （DOMPurify はブラウザDOMが必要なため、SSGビルド時には呼び出せない）
-  const [sanitized, setSanitized] = useState(html)
+  // ハイドレーション後は html 変更と同じ render で DOMPurify する。
+  // useEffect 内での差し替えだと言語切替後に DOM が再生成され、
+  // 付与済みのクラスなどが消えるため同期処理にする。
+  const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {
-    setSanitized(DOMPurify.sanitize(html))
-  }, [html])
+    setIsHydrated(true)
+  }, [])
+
+  const sanitized = isHydrated ? DOMPurify.sanitize(html) : html
 
   return <Tag className={className} dangerouslySetInnerHTML={{ __html: sanitized }} />
 }

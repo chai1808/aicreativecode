@@ -1,12 +1,17 @@
 import { useTranslation } from 'react-i18next'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import i18n from './i18n'
+import {
+  stashFaqUnderlineIndicesForLanguageSwitch,
+} from './scrollAnimations'
 
 const LanguageSwitcher = () => {
   const { i18n: i18nInstance } = useTranslation()
   const currentLanguage = i18nInstance.language
 
   const handleSwitchLanguage = (lang: string) => {
+    stashFaqUnderlineIndicesForLanguageSwitch()
+
     i18n.changeLanguage(lang).then(() => {
       ScrollTrigger.refresh()
     })

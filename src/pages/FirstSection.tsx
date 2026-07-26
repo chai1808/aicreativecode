@@ -1,10 +1,19 @@
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { restoreStashedFaqUnderlineVisibility } from '../scrollAnimations'
 import SanitizedHtml from './SanitizedHtml'
 import type { FaqItem } from './types'
 
 const FirstSection = () => {
-  const { t } = useTranslation('TopPage')
+  const { t, i18n } = useTranslation('TopPage')
   const FaqData = t('firstSection.faq', { returnObjects: true }) as FaqItem[]
+
+  useEffect(() => {
+    const frameId = requestAnimationFrame(() => {
+      restoreStashedFaqUnderlineVisibility()
+    })
+    return () => cancelAnimationFrame(frameId)
+  }, [i18n.language])
 
   return (
     <section className="block">
