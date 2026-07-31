@@ -5,12 +5,17 @@ const URLsSection = () => {
       <div className="inwrap">
         <ul>
           <li>
+            <a href="https://tryhackme.com/p/chai1808" target="_blank" rel="noreferrer">
+              <img src="/common/tryhackme.svg" alt="TryHackMe" />
+            </a>
+          </li>
+          <li>
             <a href="https://note.com/chai1808" target="_blank" rel="noreferrer">
               <img src="/common/noteicon.svg" alt="Note" />
             </a>
           </li>
           <li>
-            <a href="https://github.com/chai1808" target="_blank" rel="noreferrer">
+            <a href="https://github.com/chai1808" target="_blank" rel="noreferrer" className="github">
               <img src="/common/github.png" alt="GitHub" />
             </a>
           </li>
