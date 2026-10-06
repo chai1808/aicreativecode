@@ -25,7 +25,7 @@ const TopPage = () => {
     <div ref={containerRef}>
       <header id="topmv">
         <div className="sitetitle">
-          <h1 className="h1title sacramento">Ai Creative Code Portfolio</h1>
+          <h1 className="h1title sacramento">Chai Creative Code Portfolio</h1>
         </div>
 
         <div id="mvcanvas">
